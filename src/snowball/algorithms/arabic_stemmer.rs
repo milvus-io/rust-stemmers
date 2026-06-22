@@ -1,4 +1,4 @@
-//! Generated from arabic.sbl by Snowball 3.0.0 - https://snowballstem.org/
+//! Generated from arabic.sbl by Snowball 3.1.1 - https://snowballstem.org/
 
 #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
@@ -7,6 +7,13 @@
 #![allow(unused_variables)]
 use snowball::SnowballEnv;
 use snowball::Among;
+
+#[derive(Clone)]
+struct Context {
+    b_is_defined: bool,
+    b_is_verb: bool,
+    b_is_noun: bool,
+}
 
 static A_0: &'static [Among<Context>; 144] = &[
     Among("\u{0640}", -1, 1, None),
@@ -231,33 +238,13 @@ static A_10: &'static [Among<Context>; 10] = &[
     Among("\u{0647}\u{0627}", -1, 2, None),
 ];
 
-static A_11: &'static [Among<Context>; 1] = &[
-    Among("\u{0646}", -1, 1, None),
-];
-
-static A_12: &'static [Among<Context>; 3] = &[
+static A_11: &'static [Among<Context>; 3] = &[
     Among("\u{0648}", -1, 1, None),
     Among("\u{064A}", -1, 1, None),
     Among("\u{0627}", -1, 1, None),
 ];
 
-static A_13: &'static [Among<Context>; 1] = &[
-    Among("\u{0627}\u{062A}", -1, 1, None),
-];
-
-static A_14: &'static [Among<Context>; 1] = &[
-    Among("\u{062A}", -1, 1, None),
-];
-
-static A_15: &'static [Among<Context>; 1] = &[
-    Among("\u{0629}", -1, 1, None),
-];
-
-static A_16: &'static [Among<Context>; 1] = &[
-    Among("\u{064A}", -1, 1, None),
-];
-
-static A_17: &'static [Among<Context>; 12] = &[
+static A_12: &'static [Among<Context>; 12] = &[
     Among("\u{0643}", -1, 1, None),
     Among("\u{0643}\u{0645}", -1, 2, None),
     Among("\u{0647}\u{0645}", -1, 2, None),
@@ -272,7 +259,7 @@ static A_17: &'static [Among<Context>; 12] = &[
     Among("\u{0647}\u{0627}", -1, 2, None),
 ];
 
-static A_18: &'static [Among<Context>; 11] = &[
+static A_13: &'static [Among<Context>; 11] = &[
     Among("\u{0646}", -1, 1, None),
     Among("\u{0648}\u{0646}", 0, 3, None),
     Among("\u{064A}\u{0646}", 0, 3, None),
@@ -286,26 +273,15 @@ static A_18: &'static [Among<Context>; 11] = &[
     Among("\u{062A}", -1, 1, None),
 ];
 
-static A_19: &'static [Among<Context>; 2] = &[
+static A_14: &'static [Among<Context>; 2] = &[
     Among("\u{062A}\u{0645}", -1, 1, None),
     Among("\u{0648}\u{0627}", -1, 1, None),
 ];
 
-static A_20: &'static [Among<Context>; 2] = &[
+static A_15: &'static [Among<Context>; 2] = &[
     Among("\u{0648}", -1, 1, None),
     Among("\u{062A}\u{0645}\u{0648}", 0, 2, None),
 ];
-
-static A_21: &'static [Among<Context>; 1] = &[
-    Among("\u{0649}", -1, 1, None),
-];
-
-#[derive(Clone)]
-struct Context {
-    b_is_defined: bool,
-    b_is_verb: bool,
-    b_is_noun: bool,
-}
 
 fn r_Normalize_pre(env: &mut SnowballEnv, context: &mut Context) -> bool {
     let mut among_var;
@@ -325,259 +301,157 @@ fn r_Normalize_pre(env: &mut SnowballEnv, context: &mut Context) -> bool {
                         env.ket = env.cursor;
                         match among_var {
                             1 => {
-                                if !env.slice_del() {
-                                    return false;
-                                }
+                                env.slice_del();
                             }
                             2 => {
-                                if !env.slice_from("0") {
-                                    return false;
-                                }
+                                env.slice_from("0");
                             }
                             3 => {
-                                if !env.slice_from("1") {
-                                    return false;
-                                }
+                                env.slice_from("1");
                             }
                             4 => {
-                                if !env.slice_from("2") {
-                                    return false;
-                                }
+                                env.slice_from("2");
                             }
                             5 => {
-                                if !env.slice_from("3") {
-                                    return false;
-                                }
+                                env.slice_from("3");
                             }
                             6 => {
-                                if !env.slice_from("4") {
-                                    return false;
-                                }
+                                env.slice_from("4");
                             }
                             7 => {
-                                if !env.slice_from("5") {
-                                    return false;
-                                }
+                                env.slice_from("5");
                             }
                             8 => {
-                                if !env.slice_from("6") {
-                                    return false;
-                                }
+                                env.slice_from("6");
                             }
                             9 => {
-                                if !env.slice_from("7") {
-                                    return false;
-                                }
+                                env.slice_from("7");
                             }
                             10 => {
-                                if !env.slice_from("8") {
-                                    return false;
-                                }
+                                env.slice_from("8");
                             }
                             11 => {
-                                if !env.slice_from("9") {
-                                    return false;
-                                }
+                                env.slice_from("9");
                             }
                             12 => {
-                                if !env.slice_from("\u{0621}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0621}");
                             }
                             13 => {
-                                if !env.slice_from("\u{0623}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0623}");
                             }
                             14 => {
-                                if !env.slice_from("\u{0625}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0625}");
                             }
                             15 => {
-                                if !env.slice_from("\u{0626}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0626}");
                             }
                             16 => {
-                                if !env.slice_from("\u{0622}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0622}");
                             }
                             17 => {
-                                if !env.slice_from("\u{0624}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0624}");
                             }
                             18 => {
-                                if !env.slice_from("\u{0627}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0627}");
                             }
                             19 => {
-                                if !env.slice_from("\u{0628}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0628}");
                             }
                             20 => {
-                                if !env.slice_from("\u{0629}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0629}");
                             }
                             21 => {
-                                if !env.slice_from("\u{062A}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{062A}");
                             }
                             22 => {
-                                if !env.slice_from("\u{062B}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{062B}");
                             }
                             23 => {
-                                if !env.slice_from("\u{062C}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{062C}");
                             }
                             24 => {
-                                if !env.slice_from("\u{062D}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{062D}");
                             }
                             25 => {
-                                if !env.slice_from("\u{062E}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{062E}");
                             }
                             26 => {
-                                if !env.slice_from("\u{062F}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{062F}");
                             }
                             27 => {
-                                if !env.slice_from("\u{0630}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0630}");
                             }
                             28 => {
-                                if !env.slice_from("\u{0631}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0631}");
                             }
                             29 => {
-                                if !env.slice_from("\u{0632}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0632}");
                             }
                             30 => {
-                                if !env.slice_from("\u{0633}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0633}");
                             }
                             31 => {
-                                if !env.slice_from("\u{0634}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0634}");
                             }
                             32 => {
-                                if !env.slice_from("\u{0635}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0635}");
                             }
                             33 => {
-                                if !env.slice_from("\u{0636}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0636}");
                             }
                             34 => {
-                                if !env.slice_from("\u{0637}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0637}");
                             }
                             35 => {
-                                if !env.slice_from("\u{0638}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0638}");
                             }
                             36 => {
-                                if !env.slice_from("\u{0639}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0639}");
                             }
                             37 => {
-                                if !env.slice_from("\u{063A}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{063A}");
                             }
                             38 => {
-                                if !env.slice_from("\u{0641}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0641}");
                             }
                             39 => {
-                                if !env.slice_from("\u{0642}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0642}");
                             }
                             40 => {
-                                if !env.slice_from("\u{0643}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0643}");
                             }
                             41 => {
-                                if !env.slice_from("\u{0644}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0644}");
                             }
                             42 => {
-                                if !env.slice_from("\u{0645}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0645}");
                             }
                             43 => {
-                                if !env.slice_from("\u{0646}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0646}");
                             }
                             44 => {
-                                if !env.slice_from("\u{0647}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0647}");
                             }
                             45 => {
-                                if !env.slice_from("\u{0648}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0648}");
                             }
                             46 => {
-                                if !env.slice_from("\u{0649}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0649}");
                             }
                             47 => {
-                                if !env.slice_from("\u{064A}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{064A}");
                             }
                             48 => {
-                                if !env.slice_from("\u{0644}\u{0627}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0644}\u{0627}");
                             }
                             49 => {
-                                if !env.slice_from("\u{0644}\u{0623}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0644}\u{0623}");
                             }
                             50 => {
-                                if !env.slice_from("\u{0644}\u{0625}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0644}\u{0625}");
                             }
                             51 => {
-                                if !env.slice_from("\u{0644}\u{0622}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0644}\u{0622}");
                             }
                             _ => ()
                         }
@@ -616,9 +490,7 @@ fn r_Normalize_post(env: &mut SnowballEnv, context: &mut Context) -> bool {
             break 'lab0;
         }
         env.bra = env.cursor;
-        if !env.slice_from("\u{0621}") {
-            return false;
-        }
+        env.slice_from("\u{0621}");
         env.cursor = env.limit_backward;
         break 'lab0;
     }
@@ -643,19 +515,13 @@ fn r_Normalize_post(env: &mut SnowballEnv, context: &mut Context) -> bool {
                         env.ket = env.cursor;
                         match among_var {
                             1 => {
-                                if !env.slice_from("\u{0627}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0627}");
                             }
                             2 => {
-                                if !env.slice_from("\u{0648}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{0648}");
                             }
                             3 => {
-                                if !env.slice_from("\u{064A}") {
-                                    return false;
-                                }
+                                env.slice_from("\u{064A}");
                             }
                             _ => ()
                         }
@@ -693,7 +559,7 @@ fn r_Checks1(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
     match among_var {
         1 => {
-            if (env.current.chars().count() as i32) <= 4{
+            if (env.current.chars().count() as i32) <= 4 {
                 return false;
             }
             context.b_is_noun = true;
@@ -701,7 +567,7 @@ fn r_Checks1(env: &mut SnowballEnv, context: &mut Context) -> bool {
             context.b_is_defined = true;
         }
         2 => {
-            if (env.current.chars().count() as i32) <= 3{
+            if (env.current.chars().count() as i32) <= 3 {
                 return false;
             }
             context.b_is_noun = true;
@@ -727,36 +593,28 @@ fn r_Prefix_Step1(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
     match among_var {
         1 => {
-            if (env.current.chars().count() as i32) <= 3{
+            if (env.current.chars().count() as i32) <= 3 {
                 return false;
             }
-            if !env.slice_from("\u{0623}") {
-                return false;
-            }
+            env.slice_from("\u{0623}");
         }
         2 => {
-            if (env.current.chars().count() as i32) <= 3{
+            if (env.current.chars().count() as i32) <= 3 {
                 return false;
             }
-            if !env.slice_from("\u{0622}") {
-                return false;
-            }
+            env.slice_from("\u{0622}");
         }
         3 => {
-            if (env.current.chars().count() as i32) <= 3{
+            if (env.current.chars().count() as i32) <= 3 {
                 return false;
             }
-            if !env.slice_from("\u{0627}") {
-                return false;
-            }
+            env.slice_from("\u{0627}");
         }
         4 => {
-            if (env.current.chars().count() as i32) <= 3{
+            if (env.current.chars().count() as i32) <= 3 {
                 return false;
             }
-            if !env.slice_from("\u{0625}") {
-                return false;
-            }
+            env.slice_from("\u{0625}");
         }
         _ => ()
     }
@@ -773,20 +631,16 @@ fn r_Prefix_Step2(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.ket = env.cursor;
-    if (env.current.chars().count() as i32) <= 3{
+    if (env.current.chars().count() as i32) <= 3 {
         return false;
     }
-    let v_1 = env.cursor;
     'lab0: loop {
         if !env.eq_s(&"\u{0627}") {
             break 'lab0;
         }
         return false;
     }
-    env.cursor = v_1;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
@@ -804,20 +658,16 @@ fn r_Prefix_Step3a_Noun(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
     match among_var {
         1 => {
-            if (env.current.chars().count() as i32) <= 5{
+            if (env.current.chars().count() as i32) <= 5 {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         2 => {
-            if (env.current.chars().count() as i32) <= 4{
+            if (env.current.chars().count() as i32) <= 4 {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         _ => ()
     }
@@ -838,28 +688,22 @@ fn r_Prefix_Step3b_Noun(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
     match among_var {
         1 => {
-            if (env.current.chars().count() as i32) <= 3{
+            if (env.current.chars().count() as i32) <= 3 {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         2 => {
-            if (env.current.chars().count() as i32) <= 3{
+            if (env.current.chars().count() as i32) <= 3 {
                 return false;
             }
-            if !env.slice_from("\u{0628}") {
-                return false;
-            }
+            env.slice_from("\u{0628}");
         }
         3 => {
-            if (env.current.chars().count() as i32) <= 3{
+            if (env.current.chars().count() as i32) <= 3 {
                 return false;
             }
-            if !env.slice_from("\u{0643}") {
-                return false;
-            }
+            env.slice_from("\u{0643}");
         }
         _ => ()
     }
@@ -876,36 +720,28 @@ fn r_Prefix_Step3_Verb(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
     match among_var {
         1 => {
-            if (env.current.chars().count() as i32) <= 4{
+            if (env.current.chars().count() as i32) <= 4 {
                 return false;
             }
-            if !env.slice_from("\u{064A}") {
-                return false;
-            }
+            env.slice_from("\u{064A}");
         }
         2 => {
-            if (env.current.chars().count() as i32) <= 4{
+            if (env.current.chars().count() as i32) <= 4 {
                 return false;
             }
-            if !env.slice_from("\u{062A}") {
-                return false;
-            }
+            env.slice_from("\u{062A}");
         }
         3 => {
-            if (env.current.chars().count() as i32) <= 4{
+            if (env.current.chars().count() as i32) <= 4 {
                 return false;
             }
-            if !env.slice_from("\u{0646}") {
-                return false;
-            }
+            env.slice_from("\u{0646}");
         }
         4 => {
-            if (env.current.chars().count() as i32) <= 4{
+            if (env.current.chars().count() as i32) <= 4 {
                 return false;
             }
-            if !env.slice_from("\u{0623}") {
-                return false;
-            }
+            env.slice_from("\u{0623}");
         }
         _ => ()
     }
@@ -922,14 +758,12 @@ fn r_Prefix_Step4_Verb(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.ket = env.cursor;
-    if (env.current.chars().count() as i32) <= 4{
+    if (env.current.chars().count() as i32) <= 4 {
         return false;
     }
     context.b_is_verb = true;
     context.b_is_noun = false;
-    if !env.slice_from("\u{0627}\u{0633}\u{062A}") {
-        return false;
-    }
+    env.slice_from("\u{0627}\u{0633}\u{062A}");
     return true
 }
 
@@ -943,28 +777,22 @@ fn r_Suffix_Noun_Step1a(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.bra = env.cursor;
     match among_var {
         1 => {
-            if (env.current.chars().count() as i32) < 4{
+            if (env.current.chars().count() as i32) < 4 {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         2 => {
-            if (env.current.chars().count() as i32) < 5{
+            if (env.current.chars().count() as i32) < 5 {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         3 => {
-            if (env.current.chars().count() as i32) < 6{
+            if (env.current.chars().count() as i32) < 6 {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         _ => ()
     }
@@ -973,146 +801,108 @@ fn r_Suffix_Noun_Step1a(env: &mut SnowballEnv, context: &mut Context) -> bool {
 
 fn r_Suffix_Noun_Step1b(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
-    if (env.cursor - 1 <= env.limit_backward || env.current.as_bytes()[(env.cursor - 1) as usize] as u8 != 134 as u8) {
-        return false;
-    }
-
-    if env.find_among_b(A_11, context) == 0 {
+    if !env.eq_s_b(&"\u{0646}") {
         return false;
     }
     env.bra = env.cursor;
-    if (env.current.chars().count() as i32) <= 5{
+    if (env.current.chars().count() as i32) <= 5 {
         return false;
     }
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
 fn r_Suffix_Noun_Step2a(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
-    if env.find_among_b(A_12, context) == 0 {
+    if env.find_among_b(A_11, context) == 0 {
         return false;
     }
     env.bra = env.cursor;
-    if (env.current.chars().count() as i32) <= 4{
+    if (env.current.chars().count() as i32) <= 4 {
         return false;
     }
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
 fn r_Suffix_Noun_Step2b(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
-    if (env.cursor - 3 <= env.limit_backward || env.current.as_bytes()[(env.cursor - 1) as usize] as u8 != 170 as u8) {
-        return false;
-    }
-
-    if env.find_among_b(A_13, context) == 0 {
+    if !env.eq_s_b(&"\u{0627}\u{062A}") {
         return false;
     }
     env.bra = env.cursor;
-    if (env.current.chars().count() as i32) < 5{
+    if (env.current.chars().count() as i32) < 5 {
         return false;
     }
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
 fn r_Suffix_Noun_Step2c1(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
-    if (env.cursor - 1 <= env.limit_backward || env.current.as_bytes()[(env.cursor - 1) as usize] as u8 != 170 as u8) {
-        return false;
-    }
-
-    if env.find_among_b(A_14, context) == 0 {
+    if !env.eq_s_b(&"\u{062A}") {
         return false;
     }
     env.bra = env.cursor;
-    if (env.current.chars().count() as i32) < 4{
+    if (env.current.chars().count() as i32) < 4 {
         return false;
     }
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
 fn r_Suffix_Noun_Step2c2(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
-    if (env.cursor - 1 <= env.limit_backward || env.current.as_bytes()[(env.cursor - 1) as usize] as u8 != 169 as u8) {
-        return false;
-    }
-
-    if env.find_among_b(A_15, context) == 0 {
+    if !env.eq_s_b(&"\u{0629}") {
         return false;
     }
     env.bra = env.cursor;
-    if (env.current.chars().count() as i32) < 4{
+    if (env.current.chars().count() as i32) < 4 {
         return false;
     }
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
 fn r_Suffix_Noun_Step3(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
-    if (env.cursor - 1 <= env.limit_backward || env.current.as_bytes()[(env.cursor - 1) as usize] as u8 != 138 as u8) {
-        return false;
-    }
-
-    if env.find_among_b(A_16, context) == 0 {
+    if !env.eq_s_b(&"\u{064A}") {
         return false;
     }
     env.bra = env.cursor;
-    if (env.current.chars().count() as i32) < 3{
+    if (env.current.chars().count() as i32) < 3 {
         return false;
     }
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
 fn r_Suffix_Verb_Step1(env: &mut SnowballEnv, context: &mut Context) -> bool {
     let mut among_var;
     env.ket = env.cursor;
-    among_var = env.find_among_b(A_17, context);
+    among_var = env.find_among_b(A_12, context);
     if among_var == 0 {
         return false;
     }
     env.bra = env.cursor;
     match among_var {
         1 => {
-            if (env.current.chars().count() as i32) < 4{
+            if (env.current.chars().count() as i32) < 4 {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         2 => {
-            if (env.current.chars().count() as i32) < 5{
+            if (env.current.chars().count() as i32) < 5 {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         3 => {
-            if (env.current.chars().count() as i32) < 6{
+            if (env.current.chars().count() as i32) < 6 {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         _ => ()
     }
@@ -1122,43 +912,35 @@ fn r_Suffix_Verb_Step1(env: &mut SnowballEnv, context: &mut Context) -> bool {
 fn r_Suffix_Verb_Step2a(env: &mut SnowballEnv, context: &mut Context) -> bool {
     let mut among_var;
     env.ket = env.cursor;
-    among_var = env.find_among_b(A_18, context);
+    among_var = env.find_among_b(A_13, context);
     if among_var == 0 {
         return false;
     }
     env.bra = env.cursor;
     match among_var {
         1 => {
-            if (env.current.chars().count() as i32) < 4{
+            if (env.current.chars().count() as i32) < 4 {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         2 => {
-            if (env.current.chars().count() as i32) < 5{
+            if (env.current.chars().count() as i32) < 5 {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         3 => {
-            if (env.current.chars().count() as i32) <= 5{
+            if (env.current.chars().count() as i32) <= 5 {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         4 => {
-            if (env.current.chars().count() as i32) < 6{
+            if (env.current.chars().count() as i32) < 6 {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         _ => ()
     }
@@ -1171,16 +953,14 @@ fn r_Suffix_Verb_Step2b(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
 
-    if env.find_among_b(A_19, context) == 0 {
+    if env.find_among_b(A_14, context) == 0 {
         return false;
     }
     env.bra = env.cursor;
-    if (env.current.chars().count() as i32) < 5{
+    if (env.current.chars().count() as i32) < 5 {
         return false;
     }
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
@@ -1191,27 +971,23 @@ fn r_Suffix_Verb_Step2c(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
 
-    among_var = env.find_among_b(A_20, context);
+    among_var = env.find_among_b(A_15, context);
     if among_var == 0 {
         return false;
     }
     env.bra = env.cursor;
     match among_var {
         1 => {
-            if (env.current.chars().count() as i32) < 4{
+            if (env.current.chars().count() as i32) < 4 {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         2 => {
-            if (env.current.chars().count() as i32) < 6{
+            if (env.current.chars().count() as i32) < 6 {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         _ => ()
     }
@@ -1220,17 +996,11 @@ fn r_Suffix_Verb_Step2c(env: &mut SnowballEnv, context: &mut Context) -> bool {
 
 fn r_Suffix_All_alef_maqsura(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
-    if (env.cursor - 1 <= env.limit_backward || env.current.as_bytes()[(env.cursor - 1) as usize] as u8 != 137 as u8) {
-        return false;
-    }
-
-    if env.find_among_b(A_21, context) == 0 {
+    if !env.eq_s_b(&"\u{0649}") {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_from("\u{064A}") {
-        return false;
-    }
+    env.slice_from("\u{064A}");
     return true
 }
 

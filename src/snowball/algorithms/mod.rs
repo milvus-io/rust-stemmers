@@ -1,5 +1,6 @@
 pub mod arabic_stemmer;
 pub mod armenian_stemmer;
+pub mod czech_stemmer;
 pub mod danish_stemmer;
 pub mod dutch_stemmer;
 pub mod english_stemmer;

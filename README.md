@@ -6,6 +6,7 @@ This crate implements some stemmer algorithms found in the [snowball project](ht
 
 -   Arabic
 -   Armenian
+-   Czech
 -   Danish
 -   Dutch
 -   English

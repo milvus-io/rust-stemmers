@@ -1,4 +1,4 @@
-//! Generated from armenian.sbl by Snowball 3.0.0 - https://snowballstem.org/
+//! Generated from armenian.sbl by Snowball 3.1.1 - https://snowballstem.org/
 
 #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
@@ -7,6 +7,12 @@
 #![allow(unused_variables)]
 use snowball::SnowballEnv;
 use snowball::Among;
+
+#[derive(Clone)]
+struct Context {
+    i_p2: i32,
+    i_pV: i32,
+}
 
 static A_0: &'static [Among<Context>; 23] = &[
     Among("բար", -1, 1, None),
@@ -213,12 +219,6 @@ static A_3: &'static [Among<Context>; 57] = &[
 
 static G_v: &'static [u8; 5] = &[209, 4, 128, 0, 18];
 
-#[derive(Clone)]
-struct Context {
-    i_p2: i32,
-    i_pV: i32,
-}
-
 fn r_mark_regions(env: &mut SnowballEnv, context: &mut Context) -> bool {
     context.i_pV = env.limit;
     context.i_p2 = env.limit;
@@ -227,25 +227,25 @@ fn r_mark_regions(env: &mut SnowballEnv, context: &mut Context) -> bool {
         if !env.go_out_grouping(G_v, 1377, 1413) {
             break 'lab0;
         }
-env.next_char();        context.i_pV = env.cursor;
+        env.next_char();
+        context.i_pV = env.cursor;
         if !env.go_in_grouping(G_v, 1377, 1413) {
             break 'lab0;
         }
-env.next_char();        if !env.go_out_grouping(G_v, 1377, 1413) {
+        env.next_char();
+        if !env.go_out_grouping(G_v, 1377, 1413) {
             break 'lab0;
         }
-env.next_char();        if !env.go_in_grouping(G_v, 1377, 1413) {
+        env.next_char();
+        if !env.go_in_grouping(G_v, 1377, 1413) {
             break 'lab0;
         }
-env.next_char();        context.i_p2 = env.cursor;
+        env.next_char();
+        context.i_p2 = env.cursor;
         break 'lab0;
     }
     env.cursor = v_1;
     return true
-}
-
-fn r_R2(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return context.i_p2 <= env.cursor
 }
 
 fn r_adjective(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -254,9 +254,7 @@ fn r_adjective(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
@@ -266,9 +264,7 @@ fn r_verb(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
@@ -278,9 +274,7 @@ fn r_noun(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
@@ -290,12 +284,10 @@ fn r_ending(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !r_R2(env, context) {
+    if context.i_p2 > env.cursor {
         return false;
     }
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 

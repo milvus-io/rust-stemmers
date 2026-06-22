@@ -1,4 +1,4 @@
-//! Generated from russian.sbl by Snowball 3.0.0 - https://snowballstem.org/
+//! Generated from russian.sbl by Snowball 3.1.1 - https://snowballstem.org/
 
 #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
@@ -7,6 +7,12 @@
 #![allow(unused_variables)]
 use snowball::SnowballEnv;
 use snowball::Among;
+
+#[derive(Clone)]
+struct Context {
+    i_p2: i32,
+    i_pV: i32,
+}
 
 static A_0: &'static [Among<Context>; 9] = &[
     Among("вшись", -1, 1, None),
@@ -167,12 +173,6 @@ static A_7: &'static [Among<Context>; 4] = &[
 
 static G_v: &'static [u8; 4] = &[33, 65, 8, 232];
 
-#[derive(Clone)]
-struct Context {
-    i_p2: i32,
-    i_pV: i32,
-}
-
 fn r_mark_regions(env: &mut SnowballEnv, context: &mut Context) -> bool {
     context.i_pV = env.limit;
     context.i_p2 = env.limit;
@@ -181,25 +181,25 @@ fn r_mark_regions(env: &mut SnowballEnv, context: &mut Context) -> bool {
         if !env.go_out_grouping(G_v, 1072, 1103) {
             break 'lab0;
         }
-env.next_char();        context.i_pV = env.cursor;
+        env.next_char();
+        context.i_pV = env.cursor;
         if !env.go_in_grouping(G_v, 1072, 1103) {
             break 'lab0;
         }
-env.next_char();        if !env.go_out_grouping(G_v, 1072, 1103) {
+        env.next_char();
+        if !env.go_out_grouping(G_v, 1072, 1103) {
             break 'lab0;
         }
-env.next_char();        if !env.go_in_grouping(G_v, 1072, 1103) {
+        env.next_char();
+        if !env.go_in_grouping(G_v, 1072, 1103) {
             break 'lab0;
         }
-env.next_char();        context.i_p2 = env.cursor;
+        env.next_char();
+        context.i_p2 = env.cursor;
         break 'lab0;
     }
     env.cursor = v_1;
     return true
-}
-
-fn r_R2(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return context.i_p2 <= env.cursor
 }
 
 fn r_perfective_gerund(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -213,27 +213,21 @@ fn r_perfective_gerund(env: &mut SnowballEnv, context: &mut Context) -> bool {
     match among_var {
         1 => {
             'lab0: loop {
-                let v_1 = env.limit - env.cursor;
                 'lab1: loop {
                     if !env.eq_s_b(&"а") {
                         break 'lab1;
                     }
                     break 'lab0;
                 }
-                env.cursor = env.limit - v_1;
                 if !env.eq_s_b(&"я") {
                     return false;
                 }
                 break 'lab0;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         2 => {
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         _ => ()
     }
@@ -246,9 +240,7 @@ fn r_adjective(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
@@ -269,28 +261,22 @@ fn r_adjectival(env: &mut SnowballEnv, context: &mut Context) -> bool {
         match among_var {
             1 => {
                 'lab1: loop {
-                    let v_2 = env.limit - env.cursor;
                     'lab2: loop {
                         if !env.eq_s_b(&"а") {
                             break 'lab2;
                         }
                         break 'lab1;
                     }
-                    env.cursor = env.limit - v_2;
                     if !env.eq_s_b(&"я") {
                         env.cursor = env.limit - v_1;
                         break 'lab0;
                     }
                     break 'lab1;
                 }
-                if !env.slice_del() {
-                    return false;
-                }
+                env.slice_del();
             }
             2 => {
-                if !env.slice_del() {
-                    return false;
-                }
+                env.slice_del();
             }
             _ => ()
         }
@@ -309,9 +295,7 @@ fn r_reflexive(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
@@ -326,27 +310,21 @@ fn r_verb(env: &mut SnowballEnv, context: &mut Context) -> bool {
     match among_var {
         1 => {
             'lab0: loop {
-                let v_1 = env.limit - env.cursor;
                 'lab1: loop {
                     if !env.eq_s_b(&"а") {
                         break 'lab1;
                     }
                     break 'lab0;
                 }
-                env.cursor = env.limit - v_1;
                 if !env.eq_s_b(&"я") {
                     return false;
                 }
                 break 'lab0;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         2 => {
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         _ => ()
     }
@@ -359,9 +337,7 @@ fn r_noun(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
@@ -375,12 +351,10 @@ fn r_derivational(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !r_R2(env, context) {
+    if context.i_p2 > env.cursor {
         return false;
     }
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
@@ -394,9 +368,7 @@ fn r_tidy_up(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.bra = env.cursor;
     match among_var {
         1 => {
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
             env.ket = env.cursor;
             if !env.eq_s_b(&"н") {
                 return false;
@@ -405,22 +377,16 @@ fn r_tidy_up(env: &mut SnowballEnv, context: &mut Context) -> bool {
             if !env.eq_s_b(&"н") {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         2 => {
             if !env.eq_s_b(&"н") {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         3 => {
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         _ => ()
     }
@@ -454,9 +420,7 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
                     }
                     env.next_char();
                 }
-                if !env.slice_from("е") {
-                    return false;
-                }
+                env.slice_from("е");
                 continue 'replab1;
             }
             env.cursor = v_2;
@@ -526,9 +490,7 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
             break 'lab12;
         }
         env.bra = env.cursor;
-        if !env.slice_del() {
-            return false;
-        }
+        env.slice_del();
         break 'lab12;
     }
     let v_10 = env.limit - env.cursor;
