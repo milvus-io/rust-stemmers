@@ -15,20 +15,20 @@ groupings ( v )
 
 stringescapes {}
 
-/* special characters (in ISO Latin I) */
+/* special characters */
 
-stringdef a'   hex 'E1'  // a-acute
-stringdef a^   hex 'E2'  // a-circumflex e.g. 'bota^nico
-stringdef e'   hex 'E9'  // e-acute
-stringdef e^   hex 'EA'  // e-circumflex
-stringdef i'   hex 'ED'  // i-acute
-stringdef o^   hex 'F4'  // o-circumflex
-stringdef o'   hex 'F3'  // o-acute
-stringdef u'   hex 'FA'  // u-acute
-stringdef c,   hex 'E7'  // c-cedilla
+stringdef a'   '{U+00E1}'  // a-acute
+stringdef a^   '{U+00E2}'  // a-circumflex e.g. 'bota^nico
+stringdef e'   '{U+00E9}'  // e-acute
+stringdef e^   '{U+00EA}'  // e-circumflex
+stringdef i'   '{U+00ED}'  // i-acute
+stringdef o^   '{U+00F4}'  // o-circumflex
+stringdef o'   '{U+00F3}'  // o-acute
+stringdef u'   '{U+00FA}'  // u-acute
+stringdef cc   '{U+00E7}'  // c-cedilla
 
-stringdef a~   hex 'E3'  // a-tilde
-stringdef o~   hex 'F5'  // o-tilde
+stringdef a~   '{U+00E3}'  // a-tilde
+stringdef o~   '{U+00F5}'  // o-tilde
 
 
 define v 'aeiou{a'}{e'}{i'}{o'}{u'}{a^}{e^}{o^}'
@@ -38,7 +38,7 @@ define prelude as repeat (
         '{a~}' (<- 'a~')
         '{o~}' (<- 'o~')
         ''     (next)
-    ) //or next
+    )
 )
 
 define mark_regions as (
@@ -64,7 +64,7 @@ define postlude as repeat (
         'a~' (<- '{a~}')
         'o~' (<- '{o~}')
         ''   (next)
-    ) //or next
+    )
 )
 
 backwardmode (
@@ -86,9 +86,9 @@ backwardmode (
             'amento' 'amentos'
             'imento' 'imentos'
 
-           'adora' 'ador' 'a{c,}a~o'
-           'adoras' 'adores' 'a{c,}o~es'  // no -ic test
-           'ante' 'antes' '{a^}ncia' // Note 1
+           'adora' 'ador' 'a{cc}a~o'
+           'adoras' 'adores' 'a{cc}o~es'  // no -ic test
+           'ante' 'antes' '{a^}ncia'
             (
                 R2 delete
             )
@@ -97,7 +97,7 @@ backwardmode (
             (
                 R2 <- 'log'
             )
-            'u{c,}a~o' 'u{c,}o~es'
+            'u{cc}a~o' 'u{cc}o~es'
             (
                 R2 <- 'u'
             )
@@ -122,7 +122,7 @@ backwardmode (
                 R2 delete
                 try (
                     [substring] among(
-                        'ante' // Note 1
+                        'ante'
                         'avel'
                         '{i'}vel' (R2 delete)
                     )
@@ -193,7 +193,7 @@ backwardmode (
             'e' '{e'}' '{e^}'
                 ( RV delete [('u'] test 'g') or
                              ('i'] test 'c') RV delete )
-            '{c,}' (<-'c')
+            '{cc}' (<-'c')
         )
     )
 )
@@ -212,7 +212,3 @@ define stem as (
     )
     do postlude
 )
-
-/*
-    Note 1: additions of 15 Jun 2005
-*/

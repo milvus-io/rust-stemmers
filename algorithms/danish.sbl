@@ -10,29 +10,41 @@ externals ( stem )
 
 strings ( ch )
 
-integers ( p1 x )
+integers ( p1 )
 
-groupings ( v s_ending )
+groupings ( undouble_c v s_ending )
 
 stringescapes {}
 
-/* special characters (in ISO Latin I) */
+/* special characters */
 
-stringdef ae   hex 'E6'
-stringdef ao   hex 'E5'
-stringdef o/   hex 'F8'
+stringdef ae   '{U+00E6}'
+stringdef ao   '{U+00E5}'
+stringdef o/   '{U+00F8}'
+
+// Consonants which get undoubled by routine `undouble`.
+define undouble_c 'bdfgklmnprst'
 
 define v 'aeiouy{ae}{ao}{o/}'
 
-define s_ending  'abcdfghjklmnoprtvyz{ao}'
+define s_ending  'abcdfghjklmnoprtvyz{ao}{'}'
 
 define mark_regions as (
-
     $p1 = limit
 
-    test ( hop 3 setmark x )
-    goto v gopast non-v  setmark p1
-    try ( $p1 < x  $p1 = x )
+    do (
+      (
+        // If there's an apostrophe, start R1 after it to handle
+        // acronym loanwords such as "pc'en" and "ep'en".
+        gopast '{'}'
+      ) or (
+        gopast v  gopast non-v
+      )
+      setmark p1
+    )
+
+    // Ensure at least 3 characters before R1.
+    test (hop 3  do ($p1 < cursor  $p1 = cursor))
 )
 
 backwardmode (
@@ -73,7 +85,7 @@ backwardmode (
         )
     )
     define undouble as (
-        setlimit tomark p1 for ([non-v] ->ch)
+        setlimit tomark p1 for ([undouble_c] ->ch)
         ch
         delete
     )
@@ -81,11 +93,13 @@ backwardmode (
 
 define stem as (
 
-    do mark_regions
+    mark_regions
     backwards (
         do main_suffix
         do consonant_pair
         do other_suffix
         do undouble
+        // Remove trailing apostrophe.
+        ['{'}'] delete
     )
 )
