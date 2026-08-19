@@ -1,4 +1,4 @@
-//! Generated from turkish.sbl by Snowball 3.0.0 - https://snowballstem.org/
+//! Generated from turkish.sbl by Snowball 3.1.1 - https://snowballstem.org/
 
 #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
@@ -7,6 +7,11 @@
 #![allow(unused_variables)]
 use snowball::SnowballEnv;
 use snowball::Among;
+
+#[derive(Clone)]
+struct Context {
+    b_continue_stemming_noun_suffixes: bool,
+}
 
 static A_0: &'static [Among<Context>; 10] = &[
     Among("m", -1, -1, None),
@@ -38,11 +43,6 @@ static A_3: &'static [Among<Context>; 4] = &[
     Among("un", -1, -1, None),
     Among("ın", -1, -1, None),
     Among("ün", -1, -1, None),
-];
-
-static A_4: &'static [Among<Context>; 2] = &[
-    Among("a", -1, -1, None),
-    Among("e", -1, -1, None),
 ];
 
 static A_5: &'static [Among<Context>; 2] = &[
@@ -216,11 +216,6 @@ static G_vowel5: &'static [u8; 1] = &[65];
 
 static G_vowel6: &'static [u8; 1] = &[65];
 
-#[derive(Clone)]
-struct Context {
-    b_continue_stemming_noun_suffixes: bool,
-}
-
 fn r_check_vowel_harmony(env: &mut SnowballEnv, context: &mut Context) -> bool {
     let v_1 = env.limit - env.cursor;
     if !env.go_out_grouping_b(G_vowel, 97, 305) {
@@ -325,17 +320,13 @@ fn r_mark_suffix_with_optional_n_consonant(env: &mut SnowballEnv, context: &mut 
             break 'lab0;
         }
         env.cursor = env.limit - v_1;
-        let v_3 = env.limit - env.cursor;
         'lab2: loop {
-            let v_4 = env.limit - env.cursor;
             if !env.eq_s_b(&"n") {
                 break 'lab2;
             }
-            env.cursor = env.limit - v_4;
             return false;
         }
-        env.cursor = env.limit - v_3;
-        let v_5 = env.limit - env.cursor;
+        let v_3 = env.limit - env.cursor;
         if env.cursor <= env.limit_backward {
             return false;
         }
@@ -343,7 +334,7 @@ fn r_mark_suffix_with_optional_n_consonant(env: &mut SnowballEnv, context: &mut 
         if !env.in_grouping_b(G_vowel, 97, 305) {
             return false;
         }
-        env.cursor = env.limit - v_5;
+        env.cursor = env.limit - v_3;
         break 'lab0;
     }
     return true
@@ -364,17 +355,13 @@ fn r_mark_suffix_with_optional_s_consonant(env: &mut SnowballEnv, context: &mut 
             break 'lab0;
         }
         env.cursor = env.limit - v_1;
-        let v_3 = env.limit - env.cursor;
         'lab2: loop {
-            let v_4 = env.limit - env.cursor;
             if !env.eq_s_b(&"s") {
                 break 'lab2;
             }
-            env.cursor = env.limit - v_4;
             return false;
         }
-        env.cursor = env.limit - v_3;
-        let v_5 = env.limit - env.cursor;
+        let v_3 = env.limit - env.cursor;
         if env.cursor <= env.limit_backward {
             return false;
         }
@@ -382,7 +369,7 @@ fn r_mark_suffix_with_optional_s_consonant(env: &mut SnowballEnv, context: &mut 
         if !env.in_grouping_b(G_vowel, 97, 305) {
             return false;
         }
-        env.cursor = env.limit - v_5;
+        env.cursor = env.limit - v_3;
         break 'lab0;
     }
     return true
@@ -403,17 +390,13 @@ fn r_mark_suffix_with_optional_y_consonant(env: &mut SnowballEnv, context: &mut 
             break 'lab0;
         }
         env.cursor = env.limit - v_1;
-        let v_3 = env.limit - env.cursor;
         'lab2: loop {
-            let v_4 = env.limit - env.cursor;
             if !env.eq_s_b(&"y") {
                 break 'lab2;
             }
-            env.cursor = env.limit - v_4;
             return false;
         }
-        env.cursor = env.limit - v_3;
-        let v_5 = env.limit - env.cursor;
+        let v_3 = env.limit - env.cursor;
         if env.cursor <= env.limit_backward {
             return false;
         }
@@ -421,7 +404,7 @@ fn r_mark_suffix_with_optional_y_consonant(env: &mut SnowballEnv, context: &mut 
         if !env.in_grouping_b(G_vowel, 97, 305) {
             return false;
         }
-        env.cursor = env.limit - v_5;
+        env.cursor = env.limit - v_3;
         break 'lab0;
     }
     return true
@@ -442,17 +425,13 @@ fn r_mark_suffix_with_optional_U_vowel(env: &mut SnowballEnv, context: &mut Cont
             break 'lab0;
         }
         env.cursor = env.limit - v_1;
-        let v_3 = env.limit - env.cursor;
         'lab2: loop {
-            let v_4 = env.limit - env.cursor;
             if !env.in_grouping_b(G_U, 105, 305) {
                 break 'lab2;
             }
-            env.cursor = env.limit - v_4;
             return false;
         }
-        env.cursor = env.limit - v_3;
-        let v_5 = env.limit - env.cursor;
+        let v_3 = env.limit - env.cursor;
         if env.cursor <= env.limit_backward {
             return false;
         }
@@ -460,7 +439,7 @@ fn r_mark_suffix_with_optional_U_vowel(env: &mut SnowballEnv, context: &mut Cont
         if !env.out_grouping_b(G_vowel, 97, 305) {
             return false;
         }
-        env.cursor = env.limit - v_5;
+        env.cursor = env.limit - v_3;
         break 'lab0;
     }
     return true
@@ -534,9 +513,7 @@ fn r_mark_yA(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
 
-    if env.find_among_b(A_4, context) == 0 {
-        return false;
-    }
+    env.cursor -= 1;
     return r_mark_suffix_with_optional_y_consonant(env, context);
 }
 
@@ -607,13 +584,6 @@ fn r_mark_ylA(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     return r_mark_suffix_with_optional_y_consonant(env, context);
-}
-
-fn r_mark_ki(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    if !env.eq_s_b(&"ki") {
-        return false;
-    }
-    return true
 }
 
 fn r_mark_ncA(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -851,9 +821,7 @@ fn r_stem_nominal_verb_suffixes(env: &mut SnowballEnv, context: &mut Context) ->
                 break 'lab13;
             }
             env.bra = env.cursor;
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
             let v_4 = env.limit - env.cursor;
             'lab14: loop {
                 env.ket = env.cursor;
@@ -943,9 +911,7 @@ fn r_stem_nominal_verb_suffixes(env: &mut SnowballEnv, context: &mut Context) ->
                 break 'lab23;
             }
             env.bra = env.cursor;
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
             let v_8 = env.limit - env.cursor;
             'lab27: loop {
                 env.ket = env.cursor;
@@ -962,9 +928,7 @@ fn r_stem_nominal_verb_suffixes(env: &mut SnowballEnv, context: &mut Context) ->
             return false;
         }
         env.bra = env.cursor;
-        if !env.slice_del() {
-            return false;
-        }
+        env.slice_del();
         let v_9 = env.limit - env.cursor;
         'lab28: loop {
             env.ket = env.cursor;
@@ -1016,15 +980,13 @@ fn r_stem_nominal_verb_suffixes(env: &mut SnowballEnv, context: &mut Context) ->
         break 'lab0;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
 fn r_stem_suffix_chain_before_ki(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
-    if !r_mark_ki(env, context) {
+    if !env.eq_s_b(&"ki") {
         return false;
     }
     'lab0: loop {
@@ -1034,9 +996,7 @@ fn r_stem_suffix_chain_before_ki(env: &mut SnowballEnv, context: &mut Context) -
                 break 'lab1;
             }
             env.bra = env.cursor;
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
             let v_2 = env.limit - env.cursor;
             'lab2: loop {
                 env.ket = env.cursor;
@@ -1047,9 +1007,7 @@ fn r_stem_suffix_chain_before_ki(env: &mut SnowballEnv, context: &mut Context) -
                             break 'lab4;
                         }
                         env.bra = env.cursor;
-                        if !env.slice_del() {
-                            return false;
-                        }
+                        env.slice_del();
                         let v_4 = env.limit - env.cursor;
                         'lab5: loop {
                             if !r_stem_suffix_chain_before_ki(env, context) {
@@ -1066,9 +1024,7 @@ fn r_stem_suffix_chain_before_ki(env: &mut SnowballEnv, context: &mut Context) -
                         break 'lab2;
                     }
                     env.bra = env.cursor;
-                    if !env.slice_del() {
-                        return false;
-                    }
+                    env.slice_del();
                     let v_5 = env.limit - env.cursor;
                     'lab6: loop {
                         env.ket = env.cursor;
@@ -1077,9 +1033,7 @@ fn r_stem_suffix_chain_before_ki(env: &mut SnowballEnv, context: &mut Context) -
                             break 'lab6;
                         }
                         env.bra = env.cursor;
-                        if !env.slice_del() {
-                            return false;
-                        }
+                        env.slice_del();
                         if !r_stem_suffix_chain_before_ki(env, context) {
                             env.cursor = env.limit - v_5;
                             break 'lab6;
@@ -1098,9 +1052,7 @@ fn r_stem_suffix_chain_before_ki(env: &mut SnowballEnv, context: &mut Context) -
                 break 'lab7;
             }
             env.bra = env.cursor;
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
             let v_6 = env.limit - env.cursor;
             'lab8: loop {
                 env.ket = env.cursor;
@@ -1111,9 +1063,7 @@ fn r_stem_suffix_chain_before_ki(env: &mut SnowballEnv, context: &mut Context) -
                             break 'lab10;
                         }
                         env.bra = env.cursor;
-                        if !env.slice_del() {
-                            return false;
-                        }
+                        env.slice_del();
                         break 'lab9;
                     }
                     env.cursor = env.limit - v_7;
@@ -1134,9 +1084,7 @@ fn r_stem_suffix_chain_before_ki(env: &mut SnowballEnv, context: &mut Context) -
                             break 'lab12;
                         }
                         env.bra = env.cursor;
-                        if !env.slice_del() {
-                            return false;
-                        }
+                        env.slice_del();
                         let v_9 = env.limit - env.cursor;
                         'lab14: loop {
                             env.ket = env.cursor;
@@ -1145,9 +1093,7 @@ fn r_stem_suffix_chain_before_ki(env: &mut SnowballEnv, context: &mut Context) -
                                 break 'lab14;
                             }
                             env.bra = env.cursor;
-                            if !env.slice_del() {
-                                return false;
-                            }
+                            env.slice_del();
                             if !r_stem_suffix_chain_before_ki(env, context) {
                                 env.cursor = env.limit - v_9;
                                 break 'lab14;
@@ -1178,9 +1124,7 @@ fn r_stem_suffix_chain_before_ki(env: &mut SnowballEnv, context: &mut Context) -
                     break 'lab16;
                 }
                 env.bra = env.cursor;
-                if !env.slice_del() {
-                    return false;
-                }
+                env.slice_del();
                 break 'lab15;
             }
             env.cursor = env.limit - v_10;
@@ -1189,9 +1133,7 @@ fn r_stem_suffix_chain_before_ki(env: &mut SnowballEnv, context: &mut Context) -
                     break 'lab17;
                 }
                 env.bra = env.cursor;
-                if !env.slice_del() {
-                    return false;
-                }
+                env.slice_del();
                 let v_11 = env.limit - env.cursor;
                 'lab18: loop {
                     env.ket = env.cursor;
@@ -1200,9 +1142,7 @@ fn r_stem_suffix_chain_before_ki(env: &mut SnowballEnv, context: &mut Context) -
                         break 'lab18;
                     }
                     env.bra = env.cursor;
-                    if !env.slice_del() {
-                        return false;
-                    }
+                    env.slice_del();
                     if !r_stem_suffix_chain_before_ki(env, context) {
                         env.cursor = env.limit - v_11;
                         break 'lab18;
@@ -1231,9 +1171,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 break 'lab1;
             }
             env.bra = env.cursor;
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
             let v_2 = env.limit - env.cursor;
             'lab2: loop {
                 if !r_stem_suffix_chain_before_ki(env, context) {
@@ -1251,9 +1189,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 break 'lab3;
             }
             env.bra = env.cursor;
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
             let v_3 = env.limit - env.cursor;
             'lab4: loop {
                 'lab5: loop {
@@ -1264,9 +1200,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                             break 'lab6;
                         }
                         env.bra = env.cursor;
-                        if !env.slice_del() {
-                            return false;
-                        }
+                        env.slice_del();
                         break 'lab5;
                     }
                     env.cursor = env.limit - v_4;
@@ -1287,9 +1221,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                             break 'lab8;
                         }
                         env.bra = env.cursor;
-                        if !env.slice_del() {
-                            return false;
-                        }
+                        env.slice_del();
                         let v_6 = env.limit - env.cursor;
                         'lab10: loop {
                             env.ket = env.cursor;
@@ -1298,9 +1230,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                                 break 'lab10;
                             }
                             env.bra = env.cursor;
-                            if !env.slice_del() {
-                                return false;
-                            }
+                            env.slice_del();
                             if !r_stem_suffix_chain_before_ki(env, context) {
                                 env.cursor = env.limit - v_6;
                                 break 'lab10;
@@ -1316,9 +1246,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                         break 'lab4;
                     }
                     env.bra = env.cursor;
-                    if !env.slice_del() {
-                        return false;
-                    }
+                    env.slice_del();
                     if !r_stem_suffix_chain_before_ki(env, context) {
                         env.cursor = env.limit - v_3;
                         break 'lab4;
@@ -1353,9 +1281,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                         break 'lab15;
                     }
                     env.bra = env.cursor;
-                    if !env.slice_del() {
-                        return false;
-                    }
+                    env.slice_del();
                     break 'lab14;
                 }
                 env.cursor = env.limit - v_8;
@@ -1364,9 +1290,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                         break 'lab16;
                     }
                     env.bra = env.cursor;
-                    if !env.slice_del() {
-                        return false;
-                    }
+                    env.slice_del();
                     let v_9 = env.limit - env.cursor;
                     'lab17: loop {
                         env.ket = env.cursor;
@@ -1375,9 +1299,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                             break 'lab17;
                         }
                         env.bra = env.cursor;
-                        if !env.slice_del() {
-                            return false;
-                        }
+                        env.slice_del();
                         if !r_stem_suffix_chain_before_ki(env, context) {
                             env.cursor = env.limit - v_9;
                             break 'lab17;
@@ -1418,9 +1340,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                         break 'lab22;
                     }
                     env.bra = env.cursor;
-                    if !env.slice_del() {
-                        return false;
-                    }
+                    env.slice_del();
                     let v_12 = env.limit - env.cursor;
                     'lab23: loop {
                         env.ket = env.cursor;
@@ -1429,9 +1349,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                             break 'lab23;
                         }
                         env.bra = env.cursor;
-                        if !env.slice_del() {
-                            return false;
-                        }
+                        env.slice_del();
                         if !r_stem_suffix_chain_before_ki(env, context) {
                             env.cursor = env.limit - v_12;
                             break 'lab23;
@@ -1455,9 +1373,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 break 'lab24;
             }
             env.bra = env.cursor;
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
             let v_13 = env.limit - env.cursor;
             'lab25: loop {
                 env.ket = env.cursor;
@@ -1468,9 +1384,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                             break 'lab27;
                         }
                         env.bra = env.cursor;
-                        if !env.slice_del() {
-                            return false;
-                        }
+                        env.slice_del();
                         let v_15 = env.limit - env.cursor;
                         'lab28: loop {
                             env.ket = env.cursor;
@@ -1479,9 +1393,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                                 break 'lab28;
                             }
                             env.bra = env.cursor;
-                            if !env.slice_del() {
-                                return false;
-                            }
+                            env.slice_del();
                             if !r_stem_suffix_chain_before_ki(env, context) {
                                 env.cursor = env.limit - v_15;
                                 break 'lab28;
@@ -1496,9 +1408,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                             break 'lab29;
                         }
                         env.bra = env.cursor;
-                        if !env.slice_del() {
-                            return false;
-                        }
+                        env.slice_del();
                         let v_16 = env.limit - env.cursor;
                         'lab30: loop {
                             if !r_stem_suffix_chain_before_ki(env, context) {
@@ -1538,9 +1448,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 break 'lab32;
             }
             env.bra = env.cursor;
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
             let v_18 = env.limit - env.cursor;
             'lab34: loop {
                 'lab35: loop {
@@ -1551,9 +1459,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                             break 'lab36;
                         }
                         env.bra = env.cursor;
-                        if !env.slice_del() {
-                            return false;
-                        }
+                        env.slice_del();
                         if !r_stem_suffix_chain_before_ki(env, context) {
                             break 'lab36;
                         }
@@ -1577,9 +1483,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                             break 'lab38;
                         }
                         env.bra = env.cursor;
-                        if !env.slice_del() {
-                            return false;
-                        }
+                        env.slice_del();
                         let v_21 = env.limit - env.cursor;
                         'lab40: loop {
                             env.ket = env.cursor;
@@ -1588,9 +1492,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                                 break 'lab40;
                             }
                             env.bra = env.cursor;
-                            if !env.slice_del() {
-                                return false;
-                            }
+                            env.slice_del();
                             if !r_stem_suffix_chain_before_ki(env, context) {
                                 env.cursor = env.limit - v_21;
                                 break 'lab40;
@@ -1617,9 +1519,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 break 'lab41;
             }
             env.bra = env.cursor;
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
             break 'lab0;
         }
         env.cursor = env.limit - v_1;
@@ -1654,9 +1554,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 break 'lab44;
             }
             env.bra = env.cursor;
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
             let v_23 = env.limit - env.cursor;
             'lab47: loop {
                 env.ket = env.cursor;
@@ -1667,9 +1565,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                             break 'lab49;
                         }
                         env.bra = env.cursor;
-                        if !env.slice_del() {
-                            return false;
-                        }
+                        env.slice_del();
                         let v_25 = env.limit - env.cursor;
                         'lab50: loop {
                             env.ket = env.cursor;
@@ -1689,9 +1585,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                     break 'lab48;
                 }
                 env.bra = env.cursor;
-                if !env.slice_del() {
-                    return false;
-                }
+                env.slice_del();
                 env.ket = env.cursor;
                 if !r_stem_suffix_chain_before_ki(env, context) {
                     env.cursor = env.limit - v_23;
@@ -1718,9 +1612,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
             break 'lab51;
         }
         env.bra = env.cursor;
-        if !env.slice_del() {
-            return false;
-        }
+        env.slice_del();
         let v_27 = env.limit - env.cursor;
         'lab53: loop {
             env.ket = env.cursor;
@@ -1729,9 +1621,7 @@ fn r_stem_noun_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 break 'lab53;
             }
             env.bra = env.cursor;
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
             if !r_stem_suffix_chain_before_ki(env, context) {
                 env.cursor = env.limit - v_27;
                 break 'lab53;
@@ -1753,24 +1643,16 @@ fn r_post_process_last_consonants(env: &mut SnowballEnv, context: &mut Context) 
     env.bra = env.cursor;
     match among_var {
         1 => {
-            if !env.slice_from("p") {
-                return false;
-            }
+            env.slice_from("p");
         }
         2 => {
-            if !env.slice_from("ç") {
-                return false;
-            }
+            env.slice_from("ç");
         }
         3 => {
-            if !env.slice_from("t") {
-                return false;
-            }
+            env.slice_from("t");
         }
         4 => {
-            if !env.slice_from("k") {
-                return false;
-            }
+            env.slice_from("k");
         }
         _ => ()
     }
@@ -1781,14 +1663,12 @@ fn r_append_U_to_stems_ending_with_d_or_g(env: &mut SnowballEnv, context: &mut C
     env.ket = env.cursor;
     env.bra = env.cursor;
     'lab0: loop {
-        let v_1 = env.limit - env.cursor;
         'lab1: loop {
             if !env.eq_s_b(&"d") {
                 break 'lab1;
             }
             break 'lab0;
         }
-        env.cursor = env.limit - v_1;
         if !env.eq_s_b(&"g") {
             return false;
         }
@@ -1798,87 +1678,71 @@ fn r_append_U_to_stems_ending_with_d_or_g(env: &mut SnowballEnv, context: &mut C
         return false;
     }
     'lab2: loop {
-        let v_2 = env.limit - env.cursor;
+        let v_1 = env.limit - env.cursor;
         'lab3: loop {
             'lab4: loop {
-                let v_3 = env.limit - env.cursor;
                 'lab5: loop {
                     if !env.eq_s_b(&"a") {
                         break 'lab5;
                     }
                     break 'lab4;
                 }
-                env.cursor = env.limit - v_3;
                 if !env.eq_s_b(&"ı") {
                     break 'lab3;
                 }
                 break 'lab4;
             }
-            if !env.slice_from("ı") {
-                return false;
-            }
+            env.slice_from("ı");
             break 'lab2;
         }
-        env.cursor = env.limit - v_2;
+        env.cursor = env.limit - v_1;
         'lab6: loop {
             'lab7: loop {
-                let v_4 = env.limit - env.cursor;
                 'lab8: loop {
                     if !env.eq_s_b(&"e") {
                         break 'lab8;
                     }
                     break 'lab7;
                 }
-                env.cursor = env.limit - v_4;
                 if !env.eq_s_b(&"i") {
                     break 'lab6;
                 }
                 break 'lab7;
             }
-            if !env.slice_from("i") {
-                return false;
-            }
+            env.slice_from("i");
             break 'lab2;
         }
-        env.cursor = env.limit - v_2;
+        env.cursor = env.limit - v_1;
         'lab9: loop {
             'lab10: loop {
-                let v_5 = env.limit - env.cursor;
                 'lab11: loop {
                     if !env.eq_s_b(&"o") {
                         break 'lab11;
                     }
                     break 'lab10;
                 }
-                env.cursor = env.limit - v_5;
                 if !env.eq_s_b(&"u") {
                     break 'lab9;
                 }
                 break 'lab10;
             }
-            if !env.slice_from("u") {
-                return false;
-            }
+            env.slice_from("u");
             break 'lab2;
         }
-        env.cursor = env.limit - v_2;
+        env.cursor = env.limit - v_1;
         'lab12: loop {
-            let v_6 = env.limit - env.cursor;
             'lab13: loop {
                 if !env.eq_s_b(&"ö") {
                     break 'lab13;
                 }
                 break 'lab12;
             }
-            env.cursor = env.limit - v_6;
             if !env.eq_s_b(&"ü") {
                 return false;
             }
             break 'lab12;
         }
-        if !env.slice_from("ü") {
-            return false;
-        }
+        env.slice_from("ü");
         break 'lab2;
     }
     return true
@@ -1896,10 +1760,7 @@ fn r_is_reserved_word(env: &mut SnowballEnv, context: &mut Context) -> bool {
         }
         break 'lab0;
     }
-    if env.cursor > env.limit_backward {
-        return false;
-    }
-    return true
+    return env.cursor <= env.limit_backward
 }
 
 fn r_remove_proper_noun_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1909,14 +1770,12 @@ fn r_remove_proper_noun_suffix(env: &mut SnowballEnv, context: &mut Context) -> 
         'golab1: loop {
             let v_2 = env.cursor;
             'lab2: loop {
-                let v_3 = env.cursor;
                 'lab3: loop {
                     if !env.eq_s(&"'") {
                         break 'lab3;
                     }
                     break 'lab2;
                 }
-                env.cursor = v_3;
                 env.cursor = v_2;
                 break 'golab1;
             }
@@ -1927,27 +1786,25 @@ fn r_remove_proper_noun_suffix(env: &mut SnowballEnv, context: &mut Context) -> 
             env.next_char();
         }
         env.ket = env.cursor;
-        if !env.slice_del() {
-            return false;
-        }
+        env.slice_del();
         break 'lab0;
     }
     env.cursor = v_1;
-    let v_4 = env.cursor;
+    let v_3 = env.cursor;
     'lab4: loop {
         if !env.hop(2) {
             break 'lab4;
         }
         'golab5: loop {
-            let v_5 = env.cursor;
+            let v_4 = env.cursor;
             'lab6: loop {
                 if !env.eq_s(&"'") {
                     break 'lab6;
                 }
-                env.cursor = v_5;
+                env.cursor = v_4;
                 break 'golab5;
             }
-            env.cursor = v_5;
+            env.cursor = v_4;
             if env.cursor >= env.limit {
                 break 'lab4;
             }
@@ -1956,12 +1813,10 @@ fn r_remove_proper_noun_suffix(env: &mut SnowballEnv, context: &mut Context) -> 
         env.bra = env.cursor;
         env.cursor = env.limit;
         env.ket = env.cursor;
-        if !env.slice_del() {
-            return false;
-        }
+        env.slice_del();
         break 'lab4;
     }
-    env.cursor = v_4;
+    env.cursor = v_3;
     return true
 }
 
@@ -1971,7 +1826,8 @@ fn r_more_than_one_syllable_word(env: &mut SnowballEnv, context: &mut Context) -
         if !env.go_out_grouping(G_vowel, 97, 305) {
             return false;
         }
-env.next_char();    }
+        env.next_char();
+    }
     env.cursor = v_1;
     return true
 }

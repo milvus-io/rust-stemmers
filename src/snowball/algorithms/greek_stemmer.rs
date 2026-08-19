@@ -1,4 +1,4 @@
-//! Generated from greek.sbl by Snowball 3.0.0 - https://snowballstem.org/
+//! Generated from greek.sbl by Snowball 3.1.1 - https://snowballstem.org/
 
 #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
@@ -7,6 +7,11 @@
 #![allow(unused_variables)]
 use snowball::SnowballEnv;
 use snowball::Among;
+
+#[derive(Clone)]
+struct Context {
+    b_test1: bool,
+}
 
 static A_0: &'static [Among<Context>; 46] = &[
     Among("", -1, 25, None),
@@ -710,11 +715,7 @@ static A_39: &'static [Among<Context>; 95] = &[
     Among("αμερικαν", 93, 1, None),
 ];
 
-static A_40: &'static [Among<Context>; 1] = &[
-    Among("ησετε", -1, 1, None),
-];
-
-static A_41: &'static [Among<Context>; 31] = &[
+static A_40: &'static [Among<Context>; 31] = &[
     Among("πυρ", -1, 1, None),
     Among("ευρ", -1, 1, None),
     Among("χωρ", -1, 1, None),
@@ -748,7 +749,7 @@ static A_41: &'static [Among<Context>; 31] = &[
     Among("ρον", -1, 1, None),
 ];
 
-static A_42: &'static [Among<Context>; 25] = &[
+static A_41: &'static [Among<Context>; 25] = &[
     Among("σερπ", -1, 1, None),
     Among("κοπ", -1, 1, None),
     Among("θαρρ", -1, 1, None),
@@ -776,17 +777,17 @@ static A_42: &'static [Among<Context>; 25] = &[
     Among("βαρον", -1, 1, None),
 ];
 
-static A_43: &'static [Among<Context>; 2] = &[
+static A_42: &'static [Among<Context>; 2] = &[
     Among("ωντασ", -1, 1, None),
     Among("οντασ", -1, 1, None),
 ];
 
-static A_44: &'static [Among<Context>; 2] = &[
+static A_43: &'static [Among<Context>; 2] = &[
     Among("ομαστε", -1, 1, None),
     Among("ιομαστε", 0, 1, None),
 ];
 
-static A_45: &'static [Among<Context>; 6] = &[
+static A_44: &'static [Among<Context>; 6] = &[
     Among("π", -1, 1, None),
     Among("απ", 0, 1, None),
     Among("ακαταπ", 1, 1, None),
@@ -795,7 +796,7 @@ static A_45: &'static [Among<Context>; 6] = &[
     Among("αμεταμφ", -1, 1, None),
 ];
 
-static A_46: &'static [Among<Context>; 9] = &[
+static A_45: &'static [Among<Context>; 9] = &[
     Among("αρ", -1, 1, None),
     Among("νισ", -1, 1, None),
     Among("ζ", -1, 1, None),
@@ -807,13 +808,13 @@ static A_46: &'static [Among<Context>; 9] = &[
     Among("προ", -1, 1, None),
 ];
 
-static A_47: &'static [Among<Context>; 3] = &[
+static A_46: &'static [Among<Context>; 3] = &[
     Among("ηθηκεσ", -1, 1, None),
     Among("ηθηκα", -1, 1, None),
     Among("ηθηκε", -1, 1, None),
 ];
 
-static A_48: &'static [Among<Context>; 6] = &[
+static A_47: &'static [Among<Context>; 6] = &[
     Among("σφ", -1, 1, None),
     Among("ναρθ", -1, 1, None),
     Among("πιθ", -1, 1, None),
@@ -822,7 +823,7 @@ static A_48: &'static [Among<Context>; 6] = &[
     Among("σκωλ", -1, 1, None),
 ];
 
-static A_49: &'static [Among<Context>; 5] = &[
+static A_48: &'static [Among<Context>; 5] = &[
     Among("θ", -1, 1, None),
     Among("προσθ", 0, 1, None),
     Among("παρακαταθ", 0, 1, None),
@@ -830,13 +831,13 @@ static A_49: &'static [Among<Context>; 5] = &[
     Among("συνθ", 0, 1, None),
 ];
 
-static A_50: &'static [Among<Context>; 3] = &[
+static A_49: &'static [Among<Context>; 3] = &[
     Among("ηκεσ", -1, 1, None),
     Among("ηκα", -1, 1, None),
     Among("ηκε", -1, 1, None),
 ];
 
-static A_51: &'static [Among<Context>; 12] = &[
+static A_50: &'static [Among<Context>; 12] = &[
     Among("βλεπ", -1, 1, None),
     Among("ποδαρ", -1, 1, None),
     Among("πρωτ", -1, 1, None),
@@ -851,7 +852,7 @@ static A_51: &'static [Among<Context>; 12] = &[
     Among("ομ", -1, 1, None),
 ];
 
-static A_52: &'static [Among<Context>; 25] = &[
+static A_51: &'static [Among<Context>; 25] = &[
     Among("εκλιπ", -1, 1, None),
     Among("ρ", -1, 1, None),
     Among("αναρρ", 1, 1, None),
@@ -879,13 +880,13 @@ static A_52: &'static [Among<Context>; 25] = &[
     Among("υποτειν", -1, 1, None),
 ];
 
-static A_53: &'static [Among<Context>; 3] = &[
+static A_52: &'static [Among<Context>; 3] = &[
     Among("ουσεσ", -1, 1, None),
     Among("ουσα", -1, 1, None),
     Among("ουσε", -1, 1, None),
 ];
 
-static A_54: &'static [Among<Context>; 12] = &[
+static A_53: &'static [Among<Context>; 12] = &[
     Among("ρπ", -1, 1, None),
     Among("πρ", -1, 1, None),
     Among("φρ", -1, 1, None),
@@ -900,7 +901,7 @@ static A_54: &'static [Among<Context>; 12] = &[
     Among("σμην", -1, 1, None),
 ];
 
-static A_55: &'static [Among<Context>; 44] = &[
+static A_54: &'static [Among<Context>; 44] = &[
     Among("π", -1, 1, None),
     Among("ασπ", 0, 1, None),
     Among("ανυπ", 0, 1, None),
@@ -947,19 +948,19 @@ static A_55: &'static [Among<Context>; 44] = &[
     Among("δερβεν", 42, 1, None),
 ];
 
-static A_56: &'static [Among<Context>; 3] = &[
+static A_55: &'static [Among<Context>; 3] = &[
     Among("αγεσ", -1, 1, None),
     Among("αγα", -1, 1, None),
     Among("αγε", -1, 1, None),
 ];
 
-static A_57: &'static [Among<Context>; 3] = &[
+static A_56: &'static [Among<Context>; 3] = &[
     Among("ησου", -1, 1, None),
     Among("ησα", -1, 1, None),
     Among("ησε", -1, 1, None),
 ];
 
-static A_58: &'static [Among<Context>; 6] = &[
+static A_57: &'static [Among<Context>; 6] = &[
     Among("ν", -1, 1, None),
     Among("επταν", 0, 1, None),
     Among("δωδεκαν", 0, 1, None),
@@ -968,11 +969,7 @@ static A_58: &'static [Among<Context>; 6] = &[
     Among("ερημον", 0, 1, None),
 ];
 
-static A_59: &'static [Among<Context>; 1] = &[
-    Among("ηστε", -1, 1, None),
-];
-
-static A_60: &'static [Among<Context>; 10] = &[
+static A_58: &'static [Among<Context>; 10] = &[
     Among("χρ", -1, 1, None),
     Among("δυσχρ", 0, 1, None),
     Among("ευχρ", 0, 1, None),
@@ -985,13 +982,13 @@ static A_60: &'static [Among<Context>; 10] = &[
     Among("αειμν", -1, 1, None),
 ];
 
-static A_61: &'static [Among<Context>; 3] = &[
+static A_59: &'static [Among<Context>; 3] = &[
     Among("ουνε", -1, 1, None),
     Among("ησουνε", 0, 1, None),
     Among("ηθουνε", 0, 1, None),
 ];
 
-static A_62: &'static [Among<Context>; 6] = &[
+static A_60: &'static [Among<Context>; 6] = &[
     Among("ρ", -1, 1, None),
     Among("στραβομουτσ", -1, 1, None),
     Among("κακομουτσ", -1, 1, None),
@@ -1000,13 +997,13 @@ static A_62: &'static [Among<Context>; 6] = &[
     Among("εξων", 4, 1, None),
 ];
 
-static A_63: &'static [Among<Context>; 3] = &[
+static A_61: &'static [Among<Context>; 3] = &[
     Among("ουμε", -1, 1, None),
     Among("ησουμε", 0, 1, None),
     Among("ηθουμε", 0, 1, None),
 ];
 
-static A_64: &'static [Among<Context>; 7] = &[
+static A_62: &'static [Among<Context>; 7] = &[
     Among("ασουσ", -1, 1, None),
     Among("παρασουσ", 0, 1, None),
     Among("αλλοσουσ", -1, 1, None),
@@ -1016,13 +1013,13 @@ static A_64: &'static [Among<Context>; 7] = &[
     Among("ωριοπλ", -1, 1, None),
 ];
 
-static A_65: &'static [Among<Context>; 3] = &[
+static A_63: &'static [Among<Context>; 3] = &[
     Among("ματοσ", -1, 1, None),
     Among("ματα", -1, 1, None),
     Among("ματων", -1, 1, None),
 ];
 
-static A_66: &'static [Among<Context>; 84] = &[
+static A_64: &'static [Among<Context>; 84] = &[
     Among("υσ", -1, 1, None),
     Among("ουσ", 0, 1, None),
     Among("ασ", -1, 1, None),
@@ -1109,7 +1106,7 @@ static A_66: &'static [Among<Context>; 84] = &[
     Among("ο", -1, 1, None),
 ];
 
-static A_67: &'static [Among<Context>; 8] = &[
+static A_65: &'static [Among<Context>; 8] = &[
     Among("εστερ", -1, 1, None),
     Among("υτερ", -1, 1, None),
     Among("ωτερ", -1, 1, None),
@@ -1124,15 +1121,6 @@ static G_v: &'static [u8; 4] = &[81, 65, 16, 1];
 
 static G_v2: &'static [u8; 4] = &[81, 65, 0, 1];
 
-#[derive(Clone)]
-struct Context {
-    b_test1: bool,
-}
-
-fn r_has_min_length(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return (env.current.chars().count() as i32) >= 3
-}
-
 fn r_tolower(env: &mut SnowballEnv, context: &mut Context) -> bool {
     let mut among_var;
     'replab0: loop{
@@ -1143,124 +1131,76 @@ fn r_tolower(env: &mut SnowballEnv, context: &mut Context) -> bool {
             env.bra = env.cursor;
             match among_var {
                 1 => {
-                    if !env.slice_from("α") {
-                        return false;
-                    }
+                    env.slice_from("α");
                 }
                 2 => {
-                    if !env.slice_from("β") {
-                        return false;
-                    }
+                    env.slice_from("β");
                 }
                 3 => {
-                    if !env.slice_from("γ") {
-                        return false;
-                    }
+                    env.slice_from("γ");
                 }
                 4 => {
-                    if !env.slice_from("δ") {
-                        return false;
-                    }
+                    env.slice_from("δ");
                 }
                 5 => {
-                    if !env.slice_from("ε") {
-                        return false;
-                    }
+                    env.slice_from("ε");
                 }
                 6 => {
-                    if !env.slice_from("ζ") {
-                        return false;
-                    }
+                    env.slice_from("ζ");
                 }
                 7 => {
-                    if !env.slice_from("η") {
-                        return false;
-                    }
+                    env.slice_from("η");
                 }
                 8 => {
-                    if !env.slice_from("θ") {
-                        return false;
-                    }
+                    env.slice_from("θ");
                 }
                 9 => {
-                    if !env.slice_from("ι") {
-                        return false;
-                    }
+                    env.slice_from("ι");
                 }
                 10 => {
-                    if !env.slice_from("κ") {
-                        return false;
-                    }
+                    env.slice_from("κ");
                 }
                 11 => {
-                    if !env.slice_from("λ") {
-                        return false;
-                    }
+                    env.slice_from("λ");
                 }
                 12 => {
-                    if !env.slice_from("μ") {
-                        return false;
-                    }
+                    env.slice_from("μ");
                 }
                 13 => {
-                    if !env.slice_from("ν") {
-                        return false;
-                    }
+                    env.slice_from("ν");
                 }
                 14 => {
-                    if !env.slice_from("ξ") {
-                        return false;
-                    }
+                    env.slice_from("ξ");
                 }
                 15 => {
-                    if !env.slice_from("ο") {
-                        return false;
-                    }
+                    env.slice_from("ο");
                 }
                 16 => {
-                    if !env.slice_from("π") {
-                        return false;
-                    }
+                    env.slice_from("π");
                 }
                 17 => {
-                    if !env.slice_from("ρ") {
-                        return false;
-                    }
+                    env.slice_from("ρ");
                 }
                 18 => {
-                    if !env.slice_from("σ") {
-                        return false;
-                    }
+                    env.slice_from("σ");
                 }
                 19 => {
-                    if !env.slice_from("τ") {
-                        return false;
-                    }
+                    env.slice_from("τ");
                 }
                 20 => {
-                    if !env.slice_from("υ") {
-                        return false;
-                    }
+                    env.slice_from("υ");
                 }
                 21 => {
-                    if !env.slice_from("φ") {
-                        return false;
-                    }
+                    env.slice_from("φ");
                 }
                 22 => {
-                    if !env.slice_from("χ") {
-                        return false;
-                    }
+                    env.slice_from("χ");
                 }
                 23 => {
-                    if !env.slice_from("ψ") {
-                        return false;
-                    }
+                    env.slice_from("ψ");
                 }
                 24 => {
-                    if !env.slice_from("ω") {
-                        return false;
-                    }
+                    env.slice_from("ω");
                 }
                 25 => {
                     if env.cursor <= env.limit_backward {
@@ -1288,59 +1228,37 @@ fn r_step_1(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.bra = env.cursor;
     match among_var {
         1 => {
-            if !env.slice_from("φα") {
-                return false;
-            }
+            env.slice_from("φα");
         }
         2 => {
-            if !env.slice_from("σκα") {
-                return false;
-            }
+            env.slice_from("σκα");
         }
         3 => {
-            if !env.slice_from("ολο") {
-                return false;
-            }
+            env.slice_from("ολο");
         }
         4 => {
-            if !env.slice_from("σο") {
-                return false;
-            }
+            env.slice_from("σο");
         }
         5 => {
-            if !env.slice_from("τατο") {
-                return false;
-            }
+            env.slice_from("τατο");
         }
         6 => {
-            if !env.slice_from("κρε") {
-                return false;
-            }
+            env.slice_from("κρε");
         }
         7 => {
-            if !env.slice_from("περ") {
-                return false;
-            }
+            env.slice_from("περ");
         }
         8 => {
-            if !env.slice_from("τερ") {
-                return false;
-            }
+            env.slice_from("τερ");
         }
         9 => {
-            if !env.slice_from("φω") {
-                return false;
-            }
+            env.slice_from("φω");
         }
         10 => {
-            if !env.slice_from("καθεστ") {
-                return false;
-            }
+            env.slice_from("καθεστ");
         }
         11 => {
-            if !env.slice_from("γεγον") {
-                return false;
-            }
+            env.slice_from("γεγον");
         }
         _ => ()
     }
@@ -1355,9 +1273,7 @@ fn r_step_s1(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     env.ket = env.cursor;
     env.bra = env.cursor;
@@ -1370,14 +1286,10 @@ fn r_step_s1(env: &mut SnowballEnv, context: &mut Context) -> bool {
     }
     match among_var {
         1 => {
-            if !env.slice_from("ι") {
-                return false;
-            }
+            env.slice_from("ι");
         }
         2 => {
-            if !env.slice_from("ιζ") {
-                return false;
-            }
+            env.slice_from("ιζ");
         }
         _ => ()
     }
@@ -1390,9 +1302,7 @@ fn r_step_s2(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     env.ket = env.cursor;
     env.bra = env.cursor;
@@ -1402,9 +1312,7 @@ fn r_step_s2(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if env.cursor > env.limit_backward {
         return false;
     }
-    if !env.slice_from("ων") {
-        return false;
-    }
+    env.slice_from("ων");
     return true
 }
 
@@ -1421,9 +1329,7 @@ fn r_step_s3(env: &mut SnowballEnv, context: &mut Context) -> bool {
             if env.cursor > env.limit_backward {
                 break 'lab1;
             }
-            if !env.slice_from("ισ") {
-                return false;
-            }
+            env.slice_from("ισ");
             break 'lab0;
         }
         env.cursor = env.limit - v_1;
@@ -1434,9 +1340,7 @@ fn r_step_s3(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     env.ket = env.cursor;
     env.bra = env.cursor;
@@ -1449,14 +1353,10 @@ fn r_step_s3(env: &mut SnowballEnv, context: &mut Context) -> bool {
     }
     match among_var {
         1 => {
-            if !env.slice_from("ι") {
-                return false;
-            }
+            env.slice_from("ι");
         }
         2 => {
-            if !env.slice_from("ισ") {
-                return false;
-            }
+            env.slice_from("ισ");
         }
         _ => ()
     }
@@ -1469,9 +1369,7 @@ fn r_step_s4(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     env.ket = env.cursor;
     env.bra = env.cursor;
@@ -1485,9 +1383,7 @@ fn r_step_s4(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if env.cursor > env.limit_backward {
         return false;
     }
-    if !env.slice_from("ι") {
-        return false;
-    }
+    env.slice_from("ι");
     return true
 }
 
@@ -1498,9 +1394,7 @@ fn r_step_s5(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     env.ket = env.cursor;
     env.bra = env.cursor;
@@ -1513,14 +1407,10 @@ fn r_step_s5(env: &mut SnowballEnv, context: &mut Context) -> bool {
     }
     match among_var {
         1 => {
-            if !env.slice_from("ι") {
-                return false;
-            }
+            env.slice_from("ι");
         }
         2 => {
-            if !env.slice_from("ιστ") {
-                return false;
-            }
+            env.slice_from("ιστ");
         }
         _ => ()
     }
@@ -1534,9 +1424,7 @@ fn r_step_s6(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     'lab0: loop {
         let v_1 = env.limit - env.cursor;
@@ -1556,14 +1444,10 @@ fn r_step_s6(env: &mut SnowballEnv, context: &mut Context) -> bool {
             }
             match among_var {
                 1 => {
-                    if !env.slice_from("ισμ") {
-                        return false;
-                    }
+                    env.slice_from("ισμ");
                 }
                 2 => {
-                    if !env.slice_from("ι") {
-                        return false;
-                    }
+                    env.slice_from("ι");
                 }
                 _ => ()
             }
@@ -1582,54 +1466,34 @@ fn r_step_s6(env: &mut SnowballEnv, context: &mut Context) -> bool {
         env.bra = env.cursor;
         match among_var {
             1 => {
-                if !env.slice_from("αγνωστ") {
-                    return false;
-                }
+                env.slice_from("αγνωστ");
             }
             2 => {
-                if !env.slice_from("ατομ") {
-                    return false;
-                }
+                env.slice_from("ατομ");
             }
             3 => {
-                if !env.slice_from("γνωστ") {
-                    return false;
-                }
+                env.slice_from("γνωστ");
             }
             4 => {
-                if !env.slice_from("εθν") {
-                    return false;
-                }
+                env.slice_from("εθν");
             }
             5 => {
-                if !env.slice_from("εκλεκτ") {
-                    return false;
-                }
+                env.slice_from("εκλεκτ");
             }
             6 => {
-                if !env.slice_from("σκεπτ") {
-                    return false;
-                }
+                env.slice_from("σκεπτ");
             }
             7 => {
-                if !env.slice_from("τοπ") {
-                    return false;
-                }
+                env.slice_from("τοπ");
             }
             8 => {
-                if !env.slice_from("αλεξανδρ") {
-                    return false;
-                }
+                env.slice_from("αλεξανδρ");
             }
             9 => {
-                if !env.slice_from("βυζαντ") {
-                    return false;
-                }
+                env.slice_from("βυζαντ");
             }
             10 => {
-                if !env.slice_from("θεατρ") {
-                    return false;
-                }
+                env.slice_from("θεατρ");
             }
             _ => ()
         }
@@ -1648,9 +1512,7 @@ fn r_step_s7(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     env.ket = env.cursor;
     env.bra = env.cursor;
@@ -1664,9 +1526,7 @@ fn r_step_s7(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if env.cursor > env.limit_backward {
         return false;
     }
-    if !env.slice_from("αρακ") {
-        return false;
-    }
+    env.slice_from("αρακ");
     return true
 }
 
@@ -1677,9 +1537,7 @@ fn r_step_s8(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     'lab0: loop {
         let v_1 = env.limit - env.cursor;
@@ -1695,14 +1553,10 @@ fn r_step_s8(env: &mut SnowballEnv, context: &mut Context) -> bool {
             }
             match among_var {
                 1 => {
-                    if !env.slice_from("ακ") {
-                        return false;
-                    }
+                    env.slice_from("ακ");
                 }
                 2 => {
-                    if !env.slice_from("ιτσ") {
-                        return false;
-                    }
+                    env.slice_from("ιτσ");
                 }
                 _ => ()
             }
@@ -1714,9 +1568,7 @@ fn r_step_s8(env: &mut SnowballEnv, context: &mut Context) -> bool {
         if !env.eq_s_b(&"κορ") {
             return false;
         }
-        if !env.slice_from("ιτσ") {
-            return false;
-        }
+        env.slice_from("ιτσ");
         break 'lab0;
     }
     return true
@@ -1732,9 +1584,7 @@ fn r_step_s9(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     'lab0: loop {
         let v_1 = env.limit - env.cursor;
@@ -1747,9 +1597,7 @@ fn r_step_s9(env: &mut SnowballEnv, context: &mut Context) -> bool {
             if env.cursor > env.limit_backward {
                 break 'lab1;
             }
-            if !env.slice_from("ιδ") {
-                return false;
-            }
+            env.slice_from("ιδ");
             break 'lab0;
         }
         env.cursor = env.limit - v_1;
@@ -1762,9 +1610,7 @@ fn r_step_s9(env: &mut SnowballEnv, context: &mut Context) -> bool {
         if env.find_among_b(A_20, context) == 0 {
             return false;
         }
-        if !env.slice_from("ιδ") {
-            return false;
-        }
+        env.slice_from("ιδ");
         break 'lab0;
     }
     return true
@@ -1776,9 +1622,7 @@ fn r_step_s10(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     env.ket = env.cursor;
     env.bra = env.cursor;
@@ -1788,9 +1632,7 @@ fn r_step_s10(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if env.cursor > env.limit_backward {
         return false;
     }
-    if !env.slice_from("ισκ") {
-        return false;
-    }
+    env.slice_from("ισκ");
     return true
 }
 
@@ -1804,9 +1646,7 @@ fn r_step_2a(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     let v_1 = env.limit - env.cursor;
     'lab0: loop {
         if env.find_among_b(A_25, context) == 0 {
@@ -1832,9 +1672,7 @@ fn r_step_2b(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     env.ket = env.cursor;
     env.bra = env.cursor;
     if (env.cursor - 3 <= env.limit_backward || (env.current.as_bytes()[(env.cursor - 1) as usize] as u8 != 128 as u8 && env.current.as_bytes()[(env.cursor - 1) as usize] as u8 != 187 as u8)) {
@@ -1844,9 +1682,7 @@ fn r_step_2b(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if env.find_among_b(A_27, context) == 0 {
         return false;
     }
-    if !env.slice_from("εδ") {
-        return false;
-    }
+    env.slice_from("εδ");
     return true
 }
 
@@ -1860,17 +1696,13 @@ fn r_step_2c(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     env.ket = env.cursor;
     env.bra = env.cursor;
     if env.find_among_b(A_29, context) == 0 {
         return false;
     }
-    if !env.slice_from("ουδ") {
-        return false;
-    }
+    env.slice_from("ουδ");
     return true
 }
 
@@ -1884,9 +1716,7 @@ fn r_step_2d(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     env.ket = env.cursor;
     env.bra = env.cursor;
@@ -1896,9 +1726,7 @@ fn r_step_2d(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if env.cursor > env.limit_backward {
         return false;
     }
-    if !env.slice_from("ε") {
-        return false;
-    }
+    env.slice_from("ε");
     return true
 }
 
@@ -1908,18 +1736,14 @@ fn r_step_3(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     env.ket = env.cursor;
     env.bra = env.cursor;
     if !env.in_grouping_b(G_v, 945, 969) {
         return false;
     }
-    if !env.slice_from("ι") {
-        return false;
-    }
+    env.slice_from("ι");
     return true
 }
 
@@ -1929,9 +1753,7 @@ fn r_step_4(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     'lab0: loop {
         let v_1 = env.limit - env.cursor;
@@ -1941,9 +1763,7 @@ fn r_step_4(env: &mut SnowballEnv, context: &mut Context) -> bool {
             if !env.in_grouping_b(G_v, 945, 969) {
                 break 'lab1;
             }
-            if !env.slice_from("ικ") {
-                return false;
-            }
+            env.slice_from("ικ");
             break 'lab0;
         }
         env.cursor = env.limit - v_1;
@@ -1957,9 +1777,7 @@ fn r_step_4(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if env.cursor > env.limit_backward {
         return false;
     }
-    if !env.slice_from("ικ") {
-        return false;
-    }
+    env.slice_from("ικ");
     return true
 }
 
@@ -1974,9 +1792,7 @@ fn r_step_5a(env: &mut SnowballEnv, context: &mut Context) -> bool {
         if env.cursor > env.limit_backward {
             break 'lab0;
         }
-        if !env.slice_from("αγαμ") {
-            return false;
-        }
+        env.slice_from("αγαμ");
         break 'lab0;
     }
     env.cursor = env.limit - v_1;
@@ -1991,9 +1807,7 @@ fn r_step_5a(env: &mut SnowballEnv, context: &mut Context) -> bool {
             break 'lab1;
         }
         env.bra = env.cursor;
-        if !env.slice_del() {
-            return false;
-        }
+        env.slice_del();
         context.b_test1 = false;
         break 'lab1;
     }
@@ -2003,9 +1817,7 @@ fn r_step_5a(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     env.ket = env.cursor;
     env.bra = env.cursor;
@@ -2015,9 +1827,7 @@ fn r_step_5a(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if env.cursor > env.limit_backward {
         return false;
     }
-    if !env.slice_from("αμ") {
-        return false;
-    }
+    env.slice_from("αμ");
     return true
 }
 
@@ -2033,9 +1843,7 @@ fn r_step_5b(env: &mut SnowballEnv, context: &mut Context) -> bool {
             break 'lab0;
         }
         env.bra = env.cursor;
-        if !env.slice_del() {
-            return false;
-        }
+        env.slice_del();
         context.b_test1 = false;
         env.ket = env.cursor;
         env.bra = env.cursor;
@@ -2049,9 +1857,7 @@ fn r_step_5b(env: &mut SnowballEnv, context: &mut Context) -> bool {
         if env.cursor > env.limit_backward {
             break 'lab0;
         }
-        if !env.slice_from("αγαν") {
-            return false;
-        }
+        env.slice_from("αγαν");
         break 'lab0;
     }
     env.cursor = env.limit - v_1;
@@ -2060,9 +1866,7 @@ fn r_step_5b(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     'lab1: loop {
         let v_2 = env.limit - env.cursor;
@@ -2072,9 +1876,7 @@ fn r_step_5b(env: &mut SnowballEnv, context: &mut Context) -> bool {
             if !env.in_grouping_b(G_v2, 945, 969) {
                 break 'lab2;
             }
-            if !env.slice_from("αν") {
-                return false;
-            }
+            env.slice_from("αν");
             break 'lab1;
         }
         env.cursor = env.limit - v_2;
@@ -2088,9 +1890,7 @@ fn r_step_5b(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if env.cursor > env.limit_backward {
         return false;
     }
-    if !env.slice_from("αν") {
-        return false;
-    }
+    env.slice_from("αν");
     return true
 }
 
@@ -2098,17 +1898,11 @@ fn r_step_5c(env: &mut SnowballEnv, context: &mut Context) -> bool {
     let v_1 = env.limit - env.cursor;
     'lab0: loop {
         env.ket = env.cursor;
-        if (env.cursor - 9 <= env.limit_backward || env.current.as_bytes()[(env.cursor - 1) as usize] as u8 != 181 as u8) {
-            break 'lab0;
-        }
-
-        if env.find_among_b(A_40, context) == 0 {
+        if !env.eq_s_b(&"ησετε") {
             break 'lab0;
         }
         env.bra = env.cursor;
-        if !env.slice_del() {
-            return false;
-        }
+        env.slice_del();
         context.b_test1 = false;
         break 'lab0;
     }
@@ -2118,9 +1912,7 @@ fn r_step_5c(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     'lab1: loop {
         let v_2 = env.limit - env.cursor;
@@ -2130,21 +1922,17 @@ fn r_step_5c(env: &mut SnowballEnv, context: &mut Context) -> bool {
             if !env.in_grouping_b(G_v2, 945, 969) {
                 break 'lab2;
             }
-            if !env.slice_from("ετ") {
-                return false;
-            }
+            env.slice_from("ετ");
             break 'lab1;
         }
         env.cursor = env.limit - v_2;
         'lab3: loop {
             env.ket = env.cursor;
             env.bra = env.cursor;
-            if env.find_among_b(A_41, context) == 0 {
+            if env.find_among_b(A_40, context) == 0 {
                 break 'lab3;
             }
-            if !env.slice_from("ετ") {
-                return false;
-            }
+            env.slice_from("ετ");
             break 'lab1;
         }
         env.cursor = env.limit - v_2;
@@ -2152,15 +1940,13 @@ fn r_step_5c(env: &mut SnowballEnv, context: &mut Context) -> bool {
         break 'lab1;
     }
     env.bra = env.cursor;
-    if env.find_among_b(A_42, context) == 0 {
+    if env.find_among_b(A_41, context) == 0 {
         return false;
     }
     if env.cursor > env.limit_backward {
         return false;
     }
-    if !env.slice_from("ετ") {
-        return false;
-    }
+    env.slice_from("ετ");
     return true
 }
 
@@ -2170,13 +1956,11 @@ fn r_step_5d(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
 
-    if env.find_among_b(A_43, context) == 0 {
+    if env.find_among_b(A_42, context) == 0 {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     'lab0: loop {
         let v_1 = env.limit - env.cursor;
@@ -2189,9 +1973,7 @@ fn r_step_5d(env: &mut SnowballEnv, context: &mut Context) -> bool {
             if env.cursor > env.limit_backward {
                 break 'lab1;
             }
-            if !env.slice_from("οντ") {
-                return false;
-            }
+            env.slice_from("οντ");
             break 'lab0;
         }
         env.cursor = env.limit - v_1;
@@ -2200,9 +1982,7 @@ fn r_step_5d(env: &mut SnowballEnv, context: &mut Context) -> bool {
         if !env.eq_s_b(&"κρε") {
             return false;
         }
-        if !env.slice_from("ωντ") {
-            return false;
-        }
+        env.slice_from("ωντ");
         break 'lab0;
     }
     return true
@@ -2214,13 +1994,11 @@ fn r_step_5e(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
 
-    if env.find_among_b(A_44, context) == 0 {
+    if env.find_among_b(A_43, context) == 0 {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     env.ket = env.cursor;
     env.bra = env.cursor;
@@ -2230,9 +2008,7 @@ fn r_step_5e(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if env.cursor > env.limit_backward {
         return false;
     }
-    if !env.slice_from("ομαστ") {
-        return false;
-    }
+    env.slice_from("ομαστ");
     return true
 }
 
@@ -2244,9 +2020,7 @@ fn r_step_5f(env: &mut SnowballEnv, context: &mut Context) -> bool {
             break 'lab0;
         }
         env.bra = env.cursor;
-        if !env.slice_del() {
-            return false;
-        }
+        env.slice_del();
         context.b_test1 = false;
         env.ket = env.cursor;
         env.bra = env.cursor;
@@ -2254,15 +2028,13 @@ fn r_step_5f(env: &mut SnowballEnv, context: &mut Context) -> bool {
             break 'lab0;
         }
 
-        if env.find_among_b(A_45, context) == 0 {
+        if env.find_among_b(A_44, context) == 0 {
             break 'lab0;
         }
         if env.cursor > env.limit_backward {
             break 'lab0;
         }
-        if !env.slice_from("ιεστ") {
-            return false;
-        }
+        env.slice_from("ιεστ");
         break 'lab0;
     }
     env.cursor = env.limit - v_1;
@@ -2271,21 +2043,17 @@ fn r_step_5f(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     env.ket = env.cursor;
     env.bra = env.cursor;
-    if env.find_among_b(A_46, context) == 0 {
+    if env.find_among_b(A_45, context) == 0 {
         return false;
     }
     if env.cursor > env.limit_backward {
         return false;
     }
-    if !env.slice_from("ιεστ") {
-        return false;
-    }
+    env.slice_from("ιεστ");
     return true
 }
 
@@ -2293,37 +2061,31 @@ fn r_step_5g(env: &mut SnowballEnv, context: &mut Context) -> bool {
     let v_1 = env.limit - env.cursor;
     'lab0: loop {
         env.ket = env.cursor;
-        if env.find_among_b(A_47, context) == 0 {
+        if env.find_among_b(A_46, context) == 0 {
             break 'lab0;
         }
         env.bra = env.cursor;
-        if !env.slice_del() {
-            return false;
-        }
+        env.slice_del();
         context.b_test1 = false;
         break 'lab0;
     }
     env.cursor = env.limit - v_1;
     env.ket = env.cursor;
-    if env.find_among_b(A_50, context) == 0 {
+    if env.find_among_b(A_49, context) == 0 {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     'lab1: loop {
         let v_2 = env.limit - env.cursor;
         'lab2: loop {
             env.ket = env.cursor;
             env.bra = env.cursor;
-            if env.find_among_b(A_48, context) == 0 {
+            if env.find_among_b(A_47, context) == 0 {
                 break 'lab2;
             }
-            if !env.slice_from("ηκ") {
-                return false;
-            }
+            env.slice_from("ηκ");
             break 'lab1;
         }
         env.cursor = env.limit - v_2;
@@ -2333,15 +2095,13 @@ fn r_step_5g(env: &mut SnowballEnv, context: &mut Context) -> bool {
             return false;
         }
 
-        if env.find_among_b(A_49, context) == 0 {
+        if env.find_among_b(A_48, context) == 0 {
             return false;
         }
         if env.cursor > env.limit_backward {
             return false;
         }
-        if !env.slice_from("ηκ") {
-            return false;
-        }
+        env.slice_from("ηκ");
         break 'lab1;
     }
     return true
@@ -2349,39 +2109,33 @@ fn r_step_5g(env: &mut SnowballEnv, context: &mut Context) -> bool {
 
 fn r_step_5h(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
-    if env.find_among_b(A_53, context) == 0 {
+    if env.find_among_b(A_52, context) == 0 {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     'lab0: loop {
         let v_1 = env.limit - env.cursor;
         'lab1: loop {
             env.ket = env.cursor;
             env.bra = env.cursor;
-            if env.find_among_b(A_51, context) == 0 {
+            if env.find_among_b(A_50, context) == 0 {
                 break 'lab1;
             }
-            if !env.slice_from("ουσ") {
-                return false;
-            }
+            env.slice_from("ουσ");
             break 'lab0;
         }
         env.cursor = env.limit - v_1;
         env.ket = env.cursor;
         env.bra = env.cursor;
-        if env.find_among_b(A_52, context) == 0 {
+        if env.find_among_b(A_51, context) == 0 {
             return false;
         }
         if env.cursor > env.limit_backward {
             return false;
         }
-        if !env.slice_from("ουσ") {
-            return false;
-        }
+        env.slice_from("ουσ");
         break 'lab0;
     }
     return true
@@ -2390,13 +2144,11 @@ fn r_step_5h(env: &mut SnowballEnv, context: &mut Context) -> bool {
 fn r_step_5i(env: &mut SnowballEnv, context: &mut Context) -> bool {
     let mut among_var;
     env.ket = env.cursor;
-    if env.find_among_b(A_56, context) == 0 {
+    if env.find_among_b(A_55, context) == 0 {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     'lab0: loop {
         let v_1 = env.limit - env.cursor;
@@ -2406,9 +2158,7 @@ fn r_step_5i(env: &mut SnowballEnv, context: &mut Context) -> bool {
             if !env.eq_s_b(&"κολλ") {
                 break 'lab1;
             }
-            if !env.slice_from("αγ") {
-                return false;
-            }
+            env.slice_from("αγ");
             break 'lab0;
         }
         env.cursor = env.limit - v_1;
@@ -2417,15 +2167,13 @@ fn r_step_5i(env: &mut SnowballEnv, context: &mut Context) -> bool {
             'lab3: loop {
                 env.ket = env.cursor;
                 env.bra = env.cursor;
-                among_var = env.find_among_b(A_54, context);
+                among_var = env.find_among_b(A_53, context);
                 if among_var == 0 {
                     break 'lab3;
                 }
                 match among_var {
                     1 => {
-                        if !env.slice_from("αγ") {
-                            return false;
-                        }
+                        env.slice_from("αγ");
                     }
                     _ => ()
                 }
@@ -2434,15 +2182,13 @@ fn r_step_5i(env: &mut SnowballEnv, context: &mut Context) -> bool {
             env.cursor = env.limit - v_2;
             env.ket = env.cursor;
             env.bra = env.cursor;
-            if env.find_among_b(A_55, context) == 0 {
+            if env.find_among_b(A_54, context) == 0 {
                 return false;
             }
             if env.cursor > env.limit_backward {
                 return false;
             }
-            if !env.slice_from("αγ") {
-                return false;
-            }
+            env.slice_from("αγ");
             break 'lab2;
         }
         break 'lab0;
@@ -2452,13 +2198,11 @@ fn r_step_5i(env: &mut SnowballEnv, context: &mut Context) -> bool {
 
 fn r_step_5j(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
-    if env.find_among_b(A_57, context) == 0 {
+    if env.find_among_b(A_56, context) == 0 {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     env.ket = env.cursor;
     env.bra = env.cursor;
@@ -2466,43 +2210,33 @@ fn r_step_5j(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
 
+    if env.find_among_b(A_57, context) == 0 {
+        return false;
+    }
+    if env.cursor > env.limit_backward {
+        return false;
+    }
+    env.slice_from("ησ");
+    return true
+}
+
+fn r_step_5k(env: &mut SnowballEnv, context: &mut Context) -> bool {
+    env.ket = env.cursor;
+    if !env.eq_s_b(&"ηστε") {
+        return false;
+    }
+    env.bra = env.cursor;
+    env.slice_del();
+    context.b_test1 = false;
+    env.ket = env.cursor;
+    env.bra = env.cursor;
     if env.find_among_b(A_58, context) == 0 {
         return false;
     }
     if env.cursor > env.limit_backward {
         return false;
     }
-    if !env.slice_from("ησ") {
-        return false;
-    }
-    return true
-}
-
-fn r_step_5k(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    env.ket = env.cursor;
-    if (env.cursor - 7 <= env.limit_backward || env.current.as_bytes()[(env.cursor - 1) as usize] as u8 != 181 as u8) {
-        return false;
-    }
-
-    if env.find_among_b(A_59, context) == 0 {
-        return false;
-    }
-    env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
-    context.b_test1 = false;
-    env.ket = env.cursor;
-    env.bra = env.cursor;
-    if env.find_among_b(A_60, context) == 0 {
-        return false;
-    }
-    if env.cursor > env.limit_backward {
-        return false;
-    }
-    if !env.slice_from("ηστ") {
-        return false;
-    }
+    env.slice_from("ηστ");
     return true
 }
 
@@ -2512,25 +2246,21 @@ fn r_step_5l(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
 
-    if env.find_among_b(A_61, context) == 0 {
+    if env.find_among_b(A_59, context) == 0 {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     env.ket = env.cursor;
     env.bra = env.cursor;
-    if env.find_among_b(A_62, context) == 0 {
+    if env.find_among_b(A_60, context) == 0 {
         return false;
     }
     if env.cursor > env.limit_backward {
         return false;
     }
-    if !env.slice_from("ουν") {
-        return false;
-    }
+    env.slice_from("ουν");
     return true
 }
 
@@ -2540,25 +2270,21 @@ fn r_step_5m(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
 
-    if env.find_among_b(A_63, context) == 0 {
+    if env.find_among_b(A_61, context) == 0 {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     context.b_test1 = false;
     env.ket = env.cursor;
     env.bra = env.cursor;
-    if env.find_among_b(A_64, context) == 0 {
+    if env.find_among_b(A_62, context) == 0 {
         return false;
     }
     if env.cursor > env.limit_backward {
         return false;
     }
-    if !env.slice_from("ουμ") {
-        return false;
-    }
+    env.slice_from("ουμ");
     return true
 }
 
@@ -2566,13 +2292,11 @@ fn r_step_6(env: &mut SnowballEnv, context: &mut Context) -> bool {
     let v_1 = env.limit - env.cursor;
     'lab0: loop {
         env.ket = env.cursor;
-        if env.find_among_b(A_65, context) == 0 {
+        if env.find_among_b(A_63, context) == 0 {
             break 'lab0;
         }
         env.bra = env.cursor;
-        if !env.slice_from("μα") {
-            return false;
-        }
+        env.slice_from("μα");
         break 'lab0;
     }
     env.cursor = env.limit - v_1;
@@ -2580,13 +2304,11 @@ fn r_step_6(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.ket = env.cursor;
-    if env.find_among_b(A_66, context) == 0 {
+    if env.find_among_b(A_64, context) == 0 {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
@@ -2596,13 +2318,11 @@ fn r_step_7(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
 
-    if env.find_among_b(A_67, context) == 0 {
+    if env.find_among_b(A_65, context) == 0 {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
@@ -2615,7 +2335,7 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
     let v_1 = env.limit - env.cursor;
     r_tolower(env, context);
     env.cursor = env.limit - v_1;
-    if !r_has_min_length(env, context) {
+    if (env.current.chars().count() as i32) < 3 {
         return false;
     }
     context.b_test1 = true;

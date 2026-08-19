@@ -37,6 +37,7 @@ use snowball::algorithms;
 pub enum Algorithm {
     Arabic,
     Armenian,
+    Czech,
     Danish,
     Dutch,
     English,
@@ -67,6 +68,7 @@ impl Stemmer {
         match lang {
             Algorithm::Arabic => Stemmer { stemmer: algorithms::arabic_stemmer::stem },
             Algorithm::Armenian => Stemmer { stemmer: algorithms::armenian_stemmer::stem },
+            Algorithm::Czech => Stemmer { stemmer: algorithms::czech_stemmer::stem },
             Algorithm::Danish => Stemmer { stemmer: algorithms::danish_stemmer::stem },
             Algorithm::Dutch => Stemmer { stemmer: algorithms::dutch_stemmer::stem },
             Algorithm::English => Stemmer { stemmer: algorithms::english_stemmer::stem },
@@ -139,6 +141,24 @@ mod tests {
             stemms_to(voc.unwrap().as_str(),
                       res.unwrap().as_str(),
                       Algorithm::English);
+        }
+    }
+
+    #[test]
+    fn czech_test() {
+        use std::fs;
+        use std::io;
+        use std::io::BufRead;
+
+        let vocab = io::BufReader::new(fs::File::open("test_data/voc_cs.txt").unwrap());
+        let result = io::BufReader::new(fs::File::open("test_data/res_cs.txt").unwrap());
+
+        let lines = vocab.lines().zip(result.lines());
+
+        for (voc, res) in lines {
+            stemms_to(voc.unwrap().as_str(),
+                      res.unwrap().as_str(),
+                      Algorithm::Czech);
         }
     }
 
