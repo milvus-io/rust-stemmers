@@ -48,6 +48,7 @@ pub enum Algorithm {
     Hungarian,
     Italian,
     Norwegian,
+    Porter,
     Portuguese,
     Romanian,
     Russian,
@@ -79,6 +80,7 @@ impl Stemmer {
             Algorithm::Hungarian => Stemmer { stemmer: algorithms::hungarian_stemmer::stem },
             Algorithm::Italian => Stemmer { stemmer: algorithms::italian_stemmer::stem },
             Algorithm::Norwegian => Stemmer { stemmer: algorithms::norwegian_stemmer::stem },
+            Algorithm::Porter => Stemmer { stemmer: algorithms::porter_stemmer::stem },
             Algorithm::Portuguese => Stemmer { stemmer: algorithms::portuguese_stemmer::stem },
             Algorithm::Romanian => Stemmer { stemmer: algorithms::romanian_stemmer::stem },
             Algorithm::Russian => Stemmer { stemmer: algorithms::russian_stemmer::stem },
@@ -141,6 +143,29 @@ mod tests {
             stemms_to(voc.unwrap().as_str(),
                       res.unwrap().as_str(),
                       Algorithm::English);
+        }
+    }
+
+    #[test]
+    fn porter_test() {
+        let cases = [
+            ("caresses", "caress"),
+            ("ponies", "poni"),
+            ("ties", "ti"),
+            ("cats", "cat"),
+            ("feed", "feed"),
+            ("agreed", "agre"),
+            ("disabled", "disabl"),
+            ("matting", "mat"),
+            ("mating", "mate"),
+            ("meeting", "meet"),
+            ("milling", "mill"),
+            ("messing", "mess"),
+            ("meetings", "meet"),
+        ];
+
+        for &(word, expected) in &cases {
+            stemms_to(word, expected, Algorithm::Porter);
         }
     }
 

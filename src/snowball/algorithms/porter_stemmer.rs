@@ -1,4 +1,4 @@
-//! Generated from porter.sbl by Snowball 3.0.0 - https://snowballstem.org/
+//! Generated from porter.sbl by Snowball 3.1.1 - https://snowballstem.org/
 
 #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
@@ -7,6 +7,12 @@
 #![allow(unused_variables)]
 use snowball::SnowballEnv;
 use snowball::Among;
+
+#[derive(Clone)]
+struct Context {
+    i_p2: i32,
+    i_p1: i32,
+}
 
 static A_0: &'static [Among<Context>; 4] = &[
     Among("s", -1, 3, None),
@@ -96,13 +102,6 @@ static G_v: &'static [u8; 4] = &[17, 65, 16, 1];
 
 static G_v_WXY: &'static [u8; 5] = &[1, 17, 65, 208, 1];
 
-#[derive(Clone)]
-struct Context {
-    b_Y_found: bool,
-    i_p2: i32,
-    i_p1: i32,
-}
-
 fn r_shortv(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.out_grouping_b(G_v_WXY, 89, 121) {
         return false;
@@ -110,10 +109,7 @@ fn r_shortv(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.in_grouping_b(G_v, 97, 121) {
         return false;
     }
-    if !env.out_grouping_b(G_v, 97, 121) {
-        return false;
-    }
-    return true
+    return env.out_grouping_b(G_v, 97, 121);
 }
 
 fn r_R1(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -138,19 +134,13 @@ fn r_Step_1a(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.bra = env.cursor;
     match among_var {
         1 => {
-            if !env.slice_from("ss") {
-                return false;
-            }
+            env.slice_from("ss");
         }
         2 => {
-            if !env.slice_from("i") {
-                return false;
-            }
+            env.slice_from("i");
         }
         3 => {
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         _ => ()
     }
@@ -174,19 +164,16 @@ fn r_Step_1b(env: &mut SnowballEnv, context: &mut Context) -> bool {
             if !r_R1(env, context) {
                 return false;
             }
-            if !env.slice_from("ee") {
-                return false;
-            }
+            env.slice_from("ee");
         }
         2 => {
             let v_1 = env.limit - env.cursor;
             if !env.go_out_grouping_b(G_v, 97, 121) {
                 return false;
             }
-env.previous_char();            env.cursor = env.limit - v_1;
-            if !env.slice_del() {
-                return false;
-            }
+            env.previous_char();
+            env.cursor = env.limit - v_1;
+            env.slice_del();
             let v_2 = env.limit - env.cursor;
             if (env.cursor - 1 <= env.limit_backward || env.current.as_bytes()[(env.cursor - 1) as usize] as u8 >> 5 != 3 as u8 || ((68514004 as i32 >> (env.current.as_bytes()[(env.cursor - 1) as usize] as u8 & 0x1f)) & 1) == 0) {among_var = 3;}
             else {
@@ -207,9 +194,7 @@ env.previous_char();            env.cursor = env.limit - v_1;
                     }
                     env.previous_char();
                     env.bra = env.cursor;
-                    if !env.slice_del() {
-                        return false;
-                    }
+                    env.slice_del();
                 }
                 3 => {
                     if env.cursor != context.i_p1 {
@@ -236,14 +221,12 @@ env.previous_char();            env.cursor = env.limit - v_1;
 fn r_Step_1c(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
     'lab0: loop {
-        let v_1 = env.limit - env.cursor;
         'lab1: loop {
             if !env.eq_s_b(&"y") {
                 break 'lab1;
             }
             break 'lab0;
         }
-        env.cursor = env.limit - v_1;
         if !env.eq_s_b(&"Y") {
             return false;
         }
@@ -253,9 +236,8 @@ fn r_Step_1c(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.go_out_grouping_b(G_v, 97, 121) {
         return false;
     }
-env.previous_char();    if !env.slice_from("i") {
-        return false;
-    }
+    env.previous_char();
+    env.slice_from("i");
     return true
 }
 
@@ -276,69 +258,43 @@ fn r_Step_2(env: &mut SnowballEnv, context: &mut Context) -> bool {
     }
     match among_var {
         1 => {
-            if !env.slice_from("tion") {
-                return false;
-            }
+            env.slice_from("tion");
         }
         2 => {
-            if !env.slice_from("ence") {
-                return false;
-            }
+            env.slice_from("ence");
         }
         3 => {
-            if !env.slice_from("ance") {
-                return false;
-            }
+            env.slice_from("ance");
         }
         4 => {
-            if !env.slice_from("able") {
-                return false;
-            }
+            env.slice_from("able");
         }
         5 => {
-            if !env.slice_from("ent") {
-                return false;
-            }
+            env.slice_from("ent");
         }
         6 => {
-            if !env.slice_from("e") {
-                return false;
-            }
+            env.slice_from("e");
         }
         7 => {
-            if !env.slice_from("ize") {
-                return false;
-            }
+            env.slice_from("ize");
         }
         8 => {
-            if !env.slice_from("ate") {
-                return false;
-            }
+            env.slice_from("ate");
         }
         9 => {
-            if !env.slice_from("al") {
-                return false;
-            }
+            env.slice_from("al");
         }
         10 => {
-            if !env.slice_from("ful") {
-                return false;
-            }
+            env.slice_from("ful");
         }
         11 => {
-            if !env.slice_from("ous") {
-                return false;
-            }
+            env.slice_from("ous");
         }
         12 => {
-            if !env.slice_from("ive") {
-                return false;
-            }
+            env.slice_from("ive");
         }
         13 => {
-            if !env.slice_from("ble") {
-                return false;
-            }
+            env.slice_from("ble");
         }
         _ => ()
     }
@@ -362,19 +318,13 @@ fn r_Step_3(env: &mut SnowballEnv, context: &mut Context) -> bool {
     }
     match among_var {
         1 => {
-            if !env.slice_from("al") {
-                return false;
-            }
+            env.slice_from("al");
         }
         2 => {
-            if !env.slice_from("ic") {
-                return false;
-            }
+            env.slice_from("ic");
         }
         3 => {
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         _ => ()
     }
@@ -398,28 +348,22 @@ fn r_Step_4(env: &mut SnowballEnv, context: &mut Context) -> bool {
     }
     match among_var {
         1 => {
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         2 => {
             'lab0: loop {
-                let v_1 = env.limit - env.cursor;
                 'lab1: loop {
                     if !env.eq_s_b(&"s") {
                         break 'lab1;
                     }
                     break 'lab0;
                 }
-                env.cursor = env.limit - v_1;
                 if !env.eq_s_b(&"t") {
                     return false;
                 }
                 break 'lab0;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         _ => ()
     }
@@ -452,9 +396,7 @@ fn r_Step_5a(env: &mut SnowballEnv, context: &mut Context) -> bool {
         env.cursor = env.limit - v_1;
         break 'lab0;
     }
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
@@ -470,19 +412,17 @@ fn r_Step_5b(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.eq_s_b(&"l") {
         return false;
     }
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
 pub fn stem(env: &mut SnowballEnv) -> bool {
     let mut context = &mut Context {
-        b_Y_found: false,
         i_p2: 0,
         i_p1: 0,
     };
-    context.b_Y_found = false;
+    let mut b_Y_found : bool;
+    b_Y_found = false;
     let v_1 = env.cursor;
     'lab0: loop {
         env.bra = env.cursor;
@@ -490,10 +430,8 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
             break 'lab0;
         }
         env.ket = env.cursor;
-        if !env.slice_from("Y") {
-            return false;
-        }
-        context.b_Y_found = true;
+        env.slice_from("Y");
+        b_Y_found = true;
         break 'lab0;
     }
     env.cursor = v_1;
@@ -522,10 +460,8 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
                     }
                     env.next_char();
                 }
-                if !env.slice_from("Y") {
-                    return false;
-                }
-                context.b_Y_found = true;
+                env.slice_from("Y");
+                b_Y_found = true;
                 continue 'replab2;
             }
             env.cursor = v_3;
@@ -541,17 +477,21 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
         if !env.go_out_grouping(G_v, 97, 121) {
             break 'lab6;
         }
-env.next_char();        if !env.go_in_grouping(G_v, 97, 121) {
+        env.next_char();
+        if !env.go_in_grouping(G_v, 97, 121) {
             break 'lab6;
         }
-env.next_char();        context.i_p1 = env.cursor;
+        env.next_char();
+        context.i_p1 = env.cursor;
         if !env.go_out_grouping(G_v, 97, 121) {
             break 'lab6;
         }
-env.next_char();        if !env.go_in_grouping(G_v, 97, 121) {
+        env.next_char();
+        if !env.go_in_grouping(G_v, 97, 121) {
             break 'lab6;
         }
-env.next_char();        context.i_p2 = env.cursor;
+        env.next_char();
+        context.i_p2 = env.cursor;
         break 'lab6;
     }
     env.cursor = v_5;
@@ -584,7 +524,7 @@ env.next_char();        context.i_p2 = env.cursor;
     env.cursor = env.limit_backward;
     let v_14 = env.cursor;
     'lab7: loop {
-        if !context.b_Y_found {
+        if !b_Y_found {
             break 'lab7;
         }
         'replab8: loop{
@@ -607,9 +547,7 @@ env.next_char();        context.i_p2 = env.cursor;
                     }
                     env.next_char();
                 }
-                if !env.slice_from("y") {
-                    return false;
-                }
+                env.slice_from("y");
                 continue 'replab8;
             }
             env.cursor = v_15;

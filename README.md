@@ -16,6 +16,7 @@ This crate implements some stemmer algorithms found in the [snowball project](ht
 -   Hungarian
 -   Italian
 -   Norwegian
+-   Porter (original English algorithm)
 -   Portuguese
 -   Romanian
 -   Russian
@@ -42,4 +43,3 @@ assert_eq!(en_stemmer.stem("fruitlessly"), "fruitless");
 # Related Projects
 
 -   The [stemmer](https://github.com/lise-henry/stemmer-rs) crate provides bindings to the C Snowball implementation.
-

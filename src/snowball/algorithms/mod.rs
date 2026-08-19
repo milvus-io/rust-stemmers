@@ -11,6 +11,7 @@ pub mod greek_stemmer;
 pub mod hungarian_stemmer;
 pub mod italian_stemmer;
 pub mod norwegian_stemmer;
+pub mod porter_stemmer;
 pub mod portuguese_stemmer;
 pub mod romanian_stemmer;
 pub mod russian_stemmer;
