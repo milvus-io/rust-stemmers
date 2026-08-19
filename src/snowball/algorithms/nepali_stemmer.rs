@@ -1,4 +1,4 @@
-//! Generated from nepali.sbl by Snowball 3.0.0 - https://snowballstem.org/
+//! Generated from nepali.sbl by Snowball 3.1.1 - https://snowballstem.org/
 
 #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
@@ -7,6 +7,10 @@
 #![allow(unused_variables)]
 use snowball::SnowballEnv;
 use snowball::Among;
+
+#[derive(Clone)]
+struct Context {
+}
 
 static A_0: &'static [Among<Context>; 17] = &[
     Among("\u{0915}\u{0940}", -1, 2, None),
@@ -128,10 +132,6 @@ static A_2: &'static [Among<Context>; 91] = &[
     Among("\u{092E}\u{093E}\u{0925}\u{093F}", -1, 1, None),
 ];
 
-#[derive(Clone)]
-struct Context {
-}
-
 fn r_remove_category_1(env: &mut SnowballEnv, context: &mut Context) -> bool {
     let mut among_var;
     env.ket = env.cursor;
@@ -142,30 +142,23 @@ fn r_remove_category_1(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.bra = env.cursor;
     match among_var {
         1 => {
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         2 => {
             'lab0: loop {
-                let v_1 = env.limit - env.cursor;
                 'lab1: loop {
                     if !env.eq_s_b(&"\u{090F}") {
                         break 'lab1;
                     }
                     break 'lab0;
                 }
-                env.cursor = env.limit - v_1;
                 'lab2: loop {
                     if !env.eq_s_b(&"\u{0947}") {
                         break 'lab2;
                     }
                     break 'lab0;
                 }
-                env.cursor = env.limit - v_1;
-                if !env.slice_del() {
-                    return false;
-                }
+                env.slice_del();
                 break 'lab0;
             }
         }
@@ -189,44 +182,36 @@ fn r_remove_category_2(env: &mut SnowballEnv, context: &mut Context) -> bool {
     match among_var {
         1 => {
             'lab0: loop {
-                let v_1 = env.limit - env.cursor;
                 'lab1: loop {
                     if !env.eq_s_b(&"\u{092F}\u{094C}") {
                         break 'lab1;
                     }
                     break 'lab0;
                 }
-                env.cursor = env.limit - v_1;
                 'lab2: loop {
                     if !env.eq_s_b(&"\u{091B}\u{094C}") {
                         break 'lab2;
                     }
                     break 'lab0;
                 }
-                env.cursor = env.limit - v_1;
                 'lab3: loop {
                     if !env.eq_s_b(&"\u{0928}\u{094C}") {
                         break 'lab3;
                     }
                     break 'lab0;
                 }
-                env.cursor = env.limit - v_1;
                 if !env.eq_s_b(&"\u{0925}\u{0947}") {
                     return false;
                 }
                 break 'lab0;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         2 => {
             if !env.eq_s_b(&"\u{0924}\u{094D}\u{0930}") {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         _ => ()
     }
@@ -239,9 +224,7 @@ fn r_remove_category_3(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 

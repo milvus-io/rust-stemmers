@@ -1,4 +1,4 @@
-//! Generated from irish.sbl by Snowball 3.0.0 - https://snowballstem.org/
+//! Generated from irish.sbl by Snowball 3.1.1 - https://snowballstem.org/
 
 #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
@@ -7,6 +7,13 @@
 #![allow(unused_variables)]
 use snowball::SnowballEnv;
 use snowball::Among;
+
+#[derive(Clone)]
+struct Context {
+    i_p2: i32,
+    i_p1: i32,
+    i_pV: i32,
+}
 
 static A_0: &'static [Among<Context>; 24] = &[
     Among("b'", -1, 1, None),
@@ -99,13 +106,6 @@ static A_3: &'static [Among<Context>; 12] = &[
 
 static G_v: &'static [u8; 20] = &[17, 65, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 17, 4, 2];
 
-#[derive(Clone)]
-struct Context {
-    i_p2: i32,
-    i_p1: i32,
-    i_pV: i32,
-}
-
 fn r_mark_regions(env: &mut SnowballEnv, context: &mut Context) -> bool {
     context.i_pV = env.limit;
     context.i_p1 = env.limit;
@@ -115,18 +115,22 @@ fn r_mark_regions(env: &mut SnowballEnv, context: &mut Context) -> bool {
         if !env.go_out_grouping(G_v, 97, 250) {
             break 'lab0;
         }
-env.next_char();        context.i_pV = env.cursor;
+        env.next_char();
+        context.i_pV = env.cursor;
         if !env.go_in_grouping(G_v, 97, 250) {
             break 'lab0;
         }
-env.next_char();        context.i_p1 = env.cursor;
+        env.next_char();
+        context.i_p1 = env.cursor;
         if !env.go_out_grouping(G_v, 97, 250) {
             break 'lab0;
         }
-env.next_char();        if !env.go_in_grouping(G_v, 97, 250) {
+        env.next_char();
+        if !env.go_in_grouping(G_v, 97, 250) {
             break 'lab0;
         }
-env.next_char();        context.i_p2 = env.cursor;
+        env.next_char();
+        context.i_p2 = env.cursor;
         break 'lab0;
     }
     env.cursor = v_1;
@@ -143,62 +147,38 @@ fn r_initial_morph(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
     match among_var {
         1 => {
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         2 => {
-            if !env.slice_from("f") {
-                return false;
-            }
+            env.slice_from("f");
         }
         3 => {
-            if !env.slice_from("s") {
-                return false;
-            }
+            env.slice_from("s");
         }
         4 => {
-            if !env.slice_from("b") {
-                return false;
-            }
+            env.slice_from("b");
         }
         5 => {
-            if !env.slice_from("c") {
-                return false;
-            }
+            env.slice_from("c");
         }
         6 => {
-            if !env.slice_from("d") {
-                return false;
-            }
+            env.slice_from("d");
         }
         7 => {
-            if !env.slice_from("g") {
-                return false;
-            }
+            env.slice_from("g");
         }
         8 => {
-            if !env.slice_from("p") {
-                return false;
-            }
+            env.slice_from("p");
         }
         9 => {
-            if !env.slice_from("t") {
-                return false;
-            }
+            env.slice_from("t");
         }
         10 => {
-            if !env.slice_from("m") {
-                return false;
-            }
+            env.slice_from("m");
         }
         _ => ()
     }
     return true
-}
-
-fn r_RV(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return context.i_pV <= env.cursor
 }
 
 fn r_R1(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -222,17 +202,13 @@ fn r_noun_sfx(env: &mut SnowballEnv, context: &mut Context) -> bool {
             if !r_R1(env, context) {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         2 => {
             if !r_R2(env, context) {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         _ => ()
     }
@@ -252,34 +228,22 @@ fn r_deriv(env: &mut SnowballEnv, context: &mut Context) -> bool {
             if !r_R2(env, context) {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         2 => {
-            if !env.slice_from("arc") {
-                return false;
-            }
+            env.slice_from("arc");
         }
         3 => {
-            if !env.slice_from("gin") {
-                return false;
-            }
+            env.slice_from("gin");
         }
         4 => {
-            if !env.slice_from("graf") {
-                return false;
-            }
+            env.slice_from("graf");
         }
         5 => {
-            if !env.slice_from("paite") {
-                return false;
-            }
+            env.slice_from("paite");
         }
         6 => {
-            if !env.slice_from("óid") {
-                return false;
-            }
+            env.slice_from("óid");
         }
         _ => ()
     }
@@ -300,20 +264,16 @@ fn r_verb_sfx(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.bra = env.cursor;
     match among_var {
         1 => {
-            if !r_RV(env, context) {
+            if context.i_pV > env.cursor {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         2 => {
             if !r_R1(env, context) {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         _ => ()
     }

@@ -1,4 +1,4 @@
-//! Generated from catalan.sbl by Snowball 3.0.0 - https://snowballstem.org/
+//! Generated from catalan.sbl by Snowball 3.1.1 - https://snowballstem.org/
 
 #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
@@ -7,6 +7,12 @@
 #![allow(unused_variables)]
 use snowball::SnowballEnv;
 use snowball::Among;
+
+#[derive(Clone)]
+struct Context {
+    i_p2: i32,
+    i_p1: i32,
+}
 
 static A_0: &'static [Among<Context>; 13] = &[
     Among("", -1, 7, None),
@@ -582,12 +588,6 @@ static A_4: &'static [Among<Context>; 22] = &[
 
 static G_v: &'static [u8; 20] = &[17, 65, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 129, 81, 6, 10];
 
-#[derive(Clone)]
-struct Context {
-    i_p2: i32,
-    i_p1: i32,
-}
-
 fn r_mark_regions(env: &mut SnowballEnv, context: &mut Context) -> bool {
     context.i_p1 = env.limit;
     context.i_p2 = env.limit;
@@ -596,17 +596,21 @@ fn r_mark_regions(env: &mut SnowballEnv, context: &mut Context) -> bool {
         if !env.go_out_grouping(G_v, 97, 252) {
             break 'lab0;
         }
-env.next_char();        if !env.go_in_grouping(G_v, 97, 252) {
+        env.next_char();
+        if !env.go_in_grouping(G_v, 97, 252) {
             break 'lab0;
         }
-env.next_char();        context.i_p1 = env.cursor;
+        env.next_char();
+        context.i_p1 = env.cursor;
         if !env.go_out_grouping(G_v, 97, 252) {
             break 'lab0;
         }
-env.next_char();        if !env.go_in_grouping(G_v, 97, 252) {
+        env.next_char();
+        if !env.go_in_grouping(G_v, 97, 252) {
             break 'lab0;
         }
-env.next_char();        context.i_p2 = env.cursor;
+        env.next_char();
+        context.i_p2 = env.cursor;
         break 'lab0;
     }
     env.cursor = v_1;
@@ -626,34 +630,22 @@ fn r_cleaning(env: &mut SnowballEnv, context: &mut Context) -> bool {
             env.ket = env.cursor;
             match among_var {
                 1 => {
-                    if !env.slice_from("a") {
-                        return false;
-                    }
+                    env.slice_from("a");
                 }
                 2 => {
-                    if !env.slice_from("e") {
-                        return false;
-                    }
+                    env.slice_from("e");
                 }
                 3 => {
-                    if !env.slice_from("i") {
-                        return false;
-                    }
+                    env.slice_from("i");
                 }
                 4 => {
-                    if !env.slice_from("o") {
-                        return false;
-                    }
+                    env.slice_from("o");
                 }
                 5 => {
-                    if !env.slice_from("u") {
-                        return false;
-                    }
+                    env.slice_from("u");
                 }
                 6 => {
-                    if !env.slice_from(".") {
-                        return false;
-                    }
+                    env.slice_from(".");
                 }
                 7 => {
                     if env.cursor >= env.limit {
@@ -692,9 +684,7 @@ fn r_attached_pronoun(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !r_R1(env, context) {
         return false;
     }
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
@@ -711,41 +701,31 @@ fn r_standard_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
             if !r_R1(env, context) {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         2 => {
             if !r_R2(env, context) {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         3 => {
             if !r_R2(env, context) {
                 return false;
             }
-            if !env.slice_from("log") {
-                return false;
-            }
+            env.slice_from("log");
         }
         4 => {
             if !r_R2(env, context) {
                 return false;
             }
-            if !env.slice_from("ic") {
-                return false;
-            }
+            env.slice_from("ic");
         }
         5 => {
             if !r_R1(env, context) {
                 return false;
             }
-            if !env.slice_from("c") {
-                return false;
-            }
+            env.slice_from("c");
         }
         _ => ()
     }
@@ -765,17 +745,13 @@ fn r_verb_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
             if !r_R1(env, context) {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         2 => {
             if !r_R2(env, context) {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         _ => ()
     }
@@ -795,17 +771,13 @@ fn r_residual_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
             if !r_R1(env, context) {
                 return false;
             }
-            if !env.slice_del() {
-                return false;
-            }
+            env.slice_del();
         }
         2 => {
             if !r_R1(env, context) {
                 return false;
             }
-            if !env.slice_from("ic") {
-                return false;
-            }
+            env.slice_from("ic");
         }
         _ => ()
     }

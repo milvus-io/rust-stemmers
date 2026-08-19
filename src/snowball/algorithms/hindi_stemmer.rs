@@ -1,4 +1,4 @@
-//! Generated from hindi.sbl by Snowball 3.0.0 - https://snowballstem.org/
+//! Generated from hindi.sbl by Snowball 3.1.1 - https://snowballstem.org/
 
 #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
@@ -7,6 +7,10 @@
 #![allow(unused_variables)]
 use snowball::SnowballEnv;
 use snowball::Among;
+
+#[derive(Clone)]
+struct Context {
+}
 
 static A_0: &'static [Among<Context>; 132] = &[
     Among("\u{0940}", -1, -1, None),
@@ -145,15 +149,8 @@ static A_0: &'static [Among<Context>; 132] = &[
 
 static G_consonant: &'static [u8; 10] = &[255, 255, 255, 255, 159, 0, 0, 0, 248, 7];
 
-#[derive(Clone)]
-struct Context {
-}
-
 fn r_CONSONANT(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    if !env.in_grouping_b(G_consonant, 2325, 2399) {
-        return false;
-    }
-    return true
+    return env.in_grouping_b(G_consonant, 2325, 2399);
 }
 
 pub fn stem(env: &mut SnowballEnv) -> bool {
@@ -170,9 +167,7 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     env.cursor = env.limit_backward;
     return true
 }

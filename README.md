@@ -6,24 +6,40 @@ This crate implements some stemmer algorithms found in the [snowball project](ht
 
 -   Arabic
 -   Armenian
+-   Basque
+-   Catalan
 -   Czech
 -   Danish
 -   Dutch
+-   DutchPorter (legacy Dutch algorithm)
 -   English
+-   Esperanto
+-   Estonian
+-   Finnish
 -   French
 -   German
 -   Greek
+-   Hindi
 -   Hungarian
+-   Indonesian
+-   Irish
 -   Italian
+-   Lithuanian
+-   Nepali
 -   Norwegian
+-   Persian
+-   Polish
 -   Porter (original English algorithm)
 -   Portuguese
 -   Romanian
 -   Russian
+-   Serbian
+-   Sesotho
 -   Spanish
 -   Swedish
 -   Tamil
 -   Turkish
+-   Yiddish
 
 
 # Usage
