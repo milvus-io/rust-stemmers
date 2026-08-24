@@ -1,4 +1,5 @@
 routines (
+           elisions
            prelude postlude mark_regions
            RV R1 R2
            standard_suffix
@@ -13,27 +14,38 @@ externals ( stem )
 
 integers ( pV p1 p2 )
 
-groupings ( v keep_with_s )
+groupings ( elision_char v keep_with_s oux_ending )
 
 stringescapes {}
 
-/* special characters (in ISO Latin I) */
+/* special characters */
 
-stringdef a^   hex 'E2'  // a-circumflex
-stringdef a`   hex 'E0'  // a-grave
-stringdef c,   hex 'E7'  // c-cedilla
+stringdef a^   '{U+00E2}'  // a-circumflex
+stringdef a`   '{U+00E0}'  // a-grave
+stringdef cc   '{U+00E7}'  // c-cedilla
 
-stringdef e"   hex 'EB'  // e-diaeresis (rare)
-stringdef e'   hex 'E9'  // e-acute
-stringdef e^   hex 'EA'  // e-circumflex
-stringdef e`   hex 'E8'  // e-grave
-stringdef i"   hex 'EF'  // i-diaeresis
-stringdef i^   hex 'EE'  // i-circumflex
-stringdef o^   hex 'F4'  // o-circumflex
-stringdef u^   hex 'FB'  // u-circumflex
-stringdef u`   hex 'F9'  // u-grave
+stringdef e"   '{U+00EB}'  // e-diaeresis (rare)
+stringdef e'   '{U+00E9}'  // e-acute
+stringdef e^   '{U+00EA}'  // e-circumflex
+stringdef e`   '{U+00E8}'  // e-grave
+stringdef i"   '{U+00EF}'  // i-diaeresis
+stringdef i^   '{U+00EE}'  // i-circumflex
+stringdef o^   '{U+00F4}'  // o-circumflex
+stringdef u^   '{U+00FB}'  // u-circumflex
+stringdef u`   '{U+00F9}'  // u-grave
 
 define v 'aeiouy{a^}{a`}{e"}{e'}{e^}{e`}{i"}{i^}{o^}{u^}{u`}'
+
+// Replace -oux with -ou if preceded by one of these letters.
+define oux_ending 'bhjlnp'
+
+// Single character elisions
+define elision_char 'cdjlmnst'
+
+define elisions as
+(
+    [ (elision_char or 'qu') '{'}' ] not atlimit delete
+)
 
 define prelude as repeat goto (
 
@@ -41,6 +53,10 @@ define prelude as repeat goto (
            ('i' ] v <- 'I') or
            ('y' ] <- 'Y')
     )
+    or
+    (  [ '{e"}' ] <- 'He' )
+    or
+    (  [ '{i"}' ] <- 'Hi' )
     or
     (  ['y'] v <- 'Y' )
     or
@@ -56,10 +72,12 @@ define mark_regions as (
     do (
         ( v v next )
         or
-        among ( // this exception list begun Nov 2006
-            'par'  // paris, parie, pari
-            'col'  // colis
-            'tap'  // tapis
+        among ( // Exception list:
+            'par'    // paris, parie, pari
+            'col'    // colis
+            'tap'    // tapis
+                ()
+            'ni' (v) // niais/nierais/nié/niâmes/nièrent
             // extensions possible here
         )
         or
@@ -78,6 +96,9 @@ define postlude as repeat (
         'I' (<- 'i')
         'U' (<- 'u')
         'Y' (<- 'y')
+        'He' (<- '{e"}')
+        'Hi' (<- '{i"}')
+        'H' (delete)
         ''  (next)
     )
 )
@@ -118,8 +139,8 @@ backwardmode (
                         'eus'  ((R2 delete) or (R1<-'eux'))
                         'abl' 'iqU'
                                (R2 delete)
-                        'i{e`}r' 'I{e`}r'      //)
-                               (RV <-'i')      //)--new 2 Sept 02
+                        'i{e`}r' 'I{e`}r'
+                               (RV <-'i')
                     )
                 )
             )
@@ -143,6 +164,7 @@ backwardmode (
             )
             'eaux' (<- 'eau')
             'aux'  (R1 <- 'al')
+            'oux'  (oux_ending <- 'ou')
             'euse'
             'euses'((R2 delete) or (R1<-'eux'))
 
@@ -167,12 +189,13 @@ backwardmode (
             'irions' 'irons' 'iront' 'is' 'issaIent' 'issais' 'issait'
             'issant' 'issante' 'issantes' 'issants' 'isse' 'issent' 'isses'
             'issez' 'issiez' 'issions' 'issons' 'it'
-                (non-v delete)
+                (not 'H' non-v delete)
         )
     )
 
-    define verb_suffix as setlimit tomark pV for (
-        [substring] among (
+    define verb_suffix as (
+        setlimit tomark pV for ([substring])
+        among (
             'ions'
                 (R2 delete)
 
@@ -184,26 +207,35 @@ backwardmode (
 
                 (delete)
 
-            '{a^}mes' '{a^}t' '{a^}tes' 'a' 'ai' 'aIent' 'ais' 'ait' 'ant'
+            '{a^}mes' '{a^}t' '{a^}tes' 'a' 'ai' 'aIent' 'ait' 'ant'
             'ante' 'antes' 'ants' 'as' 'asse' 'assent' 'asses' 'assiez'
             'assions'
-                (delete
-                 try(['e'] delete)
-                )
+                ( try('e' RV]) delete )
+
+            'ais' 'aise' 'aises'
+                ( not among (
+                      'al'     // balais, calais, galais, malais, palais, valais
+                          (next atlimit)
+                      'auv'    // mauvais
+                      '{e'}pl' // déplais
+                          ()
+                  )
+                  delete )
+            'eais'
+                (delete)
         )
     )
 
     define keep_with_s 'aiou{e`}s'
 
     define residual_suffix as (
-        try(['s'] test non-keep_with_s delete)
+        try(['s'] test ('Hi' or non-keep_with_s) delete)
         setlimit tomark pV for (
             [substring] among(
                 'ion'           (R2 's' or 't' delete)
                 'ier' 'i{e`}re'
                 'Ier' 'I{e`}re' (<-'i')
                 'e'             (delete)
-                '{e"}'          ('gu' delete)
             )
         )
     )
@@ -220,6 +252,7 @@ backwardmode (
 
 define stem as (
 
+    do elisions
     do prelude
     do mark_regions
     backwards (
@@ -232,7 +265,7 @@ define stem as (
                  )
                  and
                  try( [ ('Y'   ] <- 'i' ) or
-                        ('{c,}'] <- 'c' )
+                        ('{cc}'] <- 'c' )
                  )
             ) or
             residual_suffix

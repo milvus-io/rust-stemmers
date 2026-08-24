@@ -1,4 +1,6 @@
+
 routines (
+           elisions
            prelude postlude mark_regions
            RV R1 R2
            attached_pronoun
@@ -15,20 +17,43 @@ groupings ( v AEIO CG )
 
 stringescapes {}
 
-/* special characters (in ISO Latin I) */
+/* special characters */
 
-stringdef a'   hex 'E1'
-stringdef a`   hex 'E0'
-stringdef e'   hex 'E9'
-stringdef e`   hex 'E8'
-stringdef i'   hex 'ED'
-stringdef i`   hex 'EC'
-stringdef o'   hex 'F3'
-stringdef o`   hex 'F2'
-stringdef u'   hex 'FA'
-stringdef u`   hex 'F9'
+stringdef a'   '{U+00E1}'
+stringdef a`   '{U+00E0}'
+stringdef e'   '{U+00E9}'
+stringdef e`   '{U+00E8}'
+stringdef i'   '{U+00ED}'
+stringdef i`   '{U+00EC}'
+stringdef o'   '{U+00F3}'
+stringdef o`   '{U+00F2}'
+stringdef u'   '{U+00FA}'
+stringdef u`   '{U+00F9}'
 
 define v 'aeiou{a`}{e`}{i`}{o`}{u`}'
+
+define elisions as (
+    [ substring ] not atlimit among (
+      // 'c{'}' doesn't seem useful to remove here.
+      'd{'}'      // e.g. d'Italia ("of Italy")
+      'l{'}'      // e.g. l'anno ("the year")
+      'm{'}'      // e.g. m'ama ("he loves me")
+      's{'}'      // e.g. s'innamora ("he falls in love")
+      't{'}'      // e.g. t'amo ("I love you")
+      'v{'}'      // e.g. v'adoro ("I adore you")
+      'all{'}'    // e.g. all'università ("at university")
+      'dall{'}'   // e.g. dall'album ("from the album")
+      'dell{'}'   // e.g. dell'anno ("of the year")
+      'gl{'}'     // e.g. gl'inglesi ("the English")
+      'nell{'}'   // e.g. nell'estate ("in the summer")
+      'quell{'}'  // e.g. quell'anno ("that year")
+      'quest{'}'  // e.g. quest'anno ("this year")
+      'sull{'}'   // e.g. sull'isola ("on the island")
+      'tutt{'}'   // e.g. tutt'Europa ("all of Europe")
+      'un{'}'     // e.g. un'eccentricità ("an eccentricity")
+    )
+    delete
+)
 
 define prelude as (
     test repeat (
@@ -56,6 +81,8 @@ define mark_regions as (
 
     do (
         ( v (non-v gopast v) or (v gopast non-v) )
+        or
+        'divan' // Otherwise "divano" stems to "div" and collides with "diva".
         or
         ( non-v (non-v gopast v) or (v next) )
         setmark pV
@@ -93,7 +120,7 @@ backwardmode (
             'cela' 'cele' 'celi' 'celo' 'cene'
             'vela' 'vele' 'veli' 'velo' 'vene'
         )
-        among( (RV)
+        substring RV among(
             'ando' 'endo'   (delete)
             'ar' 'er' 'ir'  (<- 'e')
         )
@@ -106,7 +133,7 @@ backwardmode (
             'ismi' 'abile' 'abili' 'ibile' 'ibili' 'ista' 'iste' 'isti'
             'ist{a`}' 'ist{e`}' 'ist{i`}' 'oso' 'osi' 'osa' 'ose' 'mente'
             'atrice' 'atrici'
-            'ante' 'anti' // Note 1
+            'ante' 'anti'
                ( R2 delete )
             'azione' 'azioni' 'atore' 'atori'
                ( R2 delete
@@ -178,16 +205,13 @@ backwardmode (
 )
 
 define stem as (
-    do prelude
-    do mark_regions
-    backwards (
-        do attached_pronoun
-        do (standard_suffix or verb_suffix)
-        do vowel_suffix
-    )
-    do postlude
+      do elisions
+      do prelude
+      do mark_regions
+      backwards (
+          do attached_pronoun
+          do (standard_suffix or verb_suffix)
+          do vowel_suffix
+      )
+      do postlude
 )
-
-/*
-    Note 1: additions of 15 Jun 2005
-*/

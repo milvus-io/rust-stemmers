@@ -93,10 +93,10 @@ impl<'a> SnowballEnv<'a> {
     }
 
     /// Replace string between `bra` and `ket` with s
-    pub fn slice_from(&mut self, s: &str) -> bool {
+    pub fn slice_from(&mut self, s: &str) {
         let (bra, ket) = (self.bra, self.ket);
         self.replace_s(bra, ket, s);
-        true
+        self.ket = bra + s.len() as i32;
     }
 
     /// Move cursor to next character
@@ -331,7 +331,7 @@ impl<'a> SnowballEnv<'a> {
 
 
     /// Helper function that removes the string slice between `bra` and `ket`
-    pub fn slice_del(&mut self) -> bool {
+    pub fn slice_del(&mut self) {
         self.slice_from("")
     }
 
@@ -407,9 +407,8 @@ impl<'a> SnowballEnv<'a> {
             if common_i >= w.0.len() as i32{
                 self.cursor = c + w.0.len() as i32;
                 if let Some(ref method) = w.3 {
-                    let res = method(self, context);
-                    self.cursor = c + w.0.len() as i32;
-                    if res {
+                    if method(self, context) {
+                        self.cursor = c + w.0.len() as i32;
                         return w.2;
                     }
                 } else {
@@ -481,9 +480,8 @@ impl<'a> SnowballEnv<'a> {
             if common_i >= w.0.len() as i32 {
                 self.cursor = c - w.0.len() as i32;
                 if let Some(ref method) = w.3 {
-                    let res = method(self, context);
-                    self.cursor = c - w.0.len() as i32;
-                    if res {
+                    if method(self, context) {
+                        self.cursor = c - w.0.len() as i32;
                         return w.2;
                     }
                 } else {

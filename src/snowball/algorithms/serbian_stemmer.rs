@@ -1,4 +1,4 @@
-//! Generated from serbian.sbl by Snowball 3.0.0 - https://snowballstem.org/
+//! Generated from serbian.sbl by Snowball 3.1.1 - https://snowballstem.org/
 
 #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
@@ -7,6 +7,12 @@
 #![allow(unused_variables)]
 use snowball::SnowballEnv;
 use snowball::Among;
+
+#[derive(Clone)]
+struct Context {
+    i_p1: i32,
+    b_no_diacritics: bool,
+}
 
 static A_0: &'static [Among<Context>; 30] = &[
     Among("а", -1, 1, None),
@@ -2249,12 +2255,6 @@ static G_ca: &'static [u8; 36] = &[119, 95, 23, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 
 static G_rg: &'static [u8; 1] = &[1];
 
-#[derive(Clone)]
-struct Context {
-    i_p1: i32,
-    b_no_diacritics: bool,
-}
-
 fn r_cyr_to_lat(env: &mut SnowballEnv, context: &mut Context) -> bool {
     let mut among_var;
     let v_1 = env.cursor;
@@ -2273,154 +2273,94 @@ fn r_cyr_to_lat(env: &mut SnowballEnv, context: &mut Context) -> bool {
                         env.ket = env.cursor;
                         match among_var {
                             1 => {
-                                if !env.slice_from("a") {
-                                    return false;
-                                }
+                                env.slice_from("a");
                             }
                             2 => {
-                                if !env.slice_from("b") {
-                                    return false;
-                                }
+                                env.slice_from("b");
                             }
                             3 => {
-                                if !env.slice_from("v") {
-                                    return false;
-                                }
+                                env.slice_from("v");
                             }
                             4 => {
-                                if !env.slice_from("g") {
-                                    return false;
-                                }
+                                env.slice_from("g");
                             }
                             5 => {
-                                if !env.slice_from("d") {
-                                    return false;
-                                }
+                                env.slice_from("d");
                             }
                             6 => {
-                                if !env.slice_from("đ") {
-                                    return false;
-                                }
+                                env.slice_from("đ");
                             }
                             7 => {
-                                if !env.slice_from("e") {
-                                    return false;
-                                }
+                                env.slice_from("e");
                             }
                             8 => {
-                                if !env.slice_from("ž") {
-                                    return false;
-                                }
+                                env.slice_from("ž");
                             }
                             9 => {
-                                if !env.slice_from("z") {
-                                    return false;
-                                }
+                                env.slice_from("z");
                             }
                             10 => {
-                                if !env.slice_from("i") {
-                                    return false;
-                                }
+                                env.slice_from("i");
                             }
                             11 => {
-                                if !env.slice_from("j") {
-                                    return false;
-                                }
+                                env.slice_from("j");
                             }
                             12 => {
-                                if !env.slice_from("k") {
-                                    return false;
-                                }
+                                env.slice_from("k");
                             }
                             13 => {
-                                if !env.slice_from("l") {
-                                    return false;
-                                }
+                                env.slice_from("l");
                             }
                             14 => {
-                                if !env.slice_from("lj") {
-                                    return false;
-                                }
+                                env.slice_from("lj");
                             }
                             15 => {
-                                if !env.slice_from("m") {
-                                    return false;
-                                }
+                                env.slice_from("m");
                             }
                             16 => {
-                                if !env.slice_from("n") {
-                                    return false;
-                                }
+                                env.slice_from("n");
                             }
                             17 => {
-                                if !env.slice_from("nj") {
-                                    return false;
-                                }
+                                env.slice_from("nj");
                             }
                             18 => {
-                                if !env.slice_from("o") {
-                                    return false;
-                                }
+                                env.slice_from("o");
                             }
                             19 => {
-                                if !env.slice_from("p") {
-                                    return false;
-                                }
+                                env.slice_from("p");
                             }
                             20 => {
-                                if !env.slice_from("r") {
-                                    return false;
-                                }
+                                env.slice_from("r");
                             }
                             21 => {
-                                if !env.slice_from("s") {
-                                    return false;
-                                }
+                                env.slice_from("s");
                             }
                             22 => {
-                                if !env.slice_from("t") {
-                                    return false;
-                                }
+                                env.slice_from("t");
                             }
                             23 => {
-                                if !env.slice_from("ć") {
-                                    return false;
-                                }
+                                env.slice_from("ć");
                             }
                             24 => {
-                                if !env.slice_from("u") {
-                                    return false;
-                                }
+                                env.slice_from("u");
                             }
                             25 => {
-                                if !env.slice_from("f") {
-                                    return false;
-                                }
+                                env.slice_from("f");
                             }
                             26 => {
-                                if !env.slice_from("h") {
-                                    return false;
-                                }
+                                env.slice_from("h");
                             }
                             27 => {
-                                if !env.slice_from("c") {
-                                    return false;
-                                }
+                                env.slice_from("c");
                             }
                             28 => {
-                                if !env.slice_from("č") {
-                                    return false;
-                                }
+                                env.slice_from("č");
                             }
                             29 => {
-                                if !env.slice_from("dž") {
-                                    return false;
-                                }
+                                env.slice_from("dž");
                             }
                             30 => {
-                                if !env.slice_from("š") {
-                                    return false;
-                                }
+                                env.slice_from("š");
                             }
                             _ => ()
                         }
@@ -2464,9 +2404,7 @@ fn r_prelude(env: &mut SnowballEnv, context: &mut Context) -> bool {
                         if !env.in_grouping(G_ca, 98, 382) {
                             break 'lab4;
                         }
-                        if !env.slice_from("e") {
-                            return false;
-                        }
+                        env.slice_from("e");
                         env.cursor = v_3;
                         break 'golab3;
                     }
@@ -2503,9 +2441,7 @@ fn r_prelude(env: &mut SnowballEnv, context: &mut Context) -> bool {
                         if !env.in_grouping(G_ca, 98, 382) {
                             break 'lab9;
                         }
-                        if !env.slice_from("e") {
-                            return false;
-                        }
+                        env.slice_from("e");
                         env.cursor = v_6;
                         break 'golab8;
                     }
@@ -2536,9 +2472,7 @@ fn r_prelude(env: &mut SnowballEnv, context: &mut Context) -> bool {
                             break 'lab14;
                         }
                         env.ket = env.cursor;
-                        if !env.slice_from("đ") {
-                            return false;
-                        }
+                        env.slice_from("đ");
                         env.cursor = v_9;
                         break 'golab13;
                     }
@@ -2566,7 +2500,8 @@ fn r_mark_regions(env: &mut SnowballEnv, context: &mut Context) -> bool {
         if !env.go_out_grouping(G_sa, 263, 382) {
             break 'lab0;
         }
-env.next_char();        context.b_no_diacritics = false;
+        env.next_char();
+        context.b_no_diacritics = false;
         break 'lab0;
     }
     env.cursor = v_1;
@@ -2576,14 +2511,16 @@ env.next_char();        context.b_no_diacritics = false;
         if !env.go_out_grouping(G_v, 97, 117) {
             break 'lab1;
         }
-env.next_char();        context.i_p1 = env.cursor;
-        if context.i_p1 >= 2{
+        env.next_char();
+        context.i_p1 = env.cursor;
+        if context.i_p1 >= 2 {
             break 'lab1;
         }
         if !env.go_in_grouping(G_v, 97, 117) {
             break 'lab1;
         }
-env.next_char();        context.i_p1 = env.cursor;
+        env.next_char();
+        context.i_p1 = env.cursor;
         break 'lab1;
     }
     env.cursor = v_2;
@@ -2602,20 +2539,19 @@ env.next_char();        context.i_p1 = env.cursor;
             env.next_char();
         }
         'lab5: loop {
-            let v_4 = env.cursor;
             'lab6: loop {
-                if env.cursor < 2{
+                if env.cursor < 2 {
                     break 'lab6;
                 }
                 break 'lab5;
             }
-            env.cursor = v_4;
             if !env.go_in_grouping(G_rg, 114, 114) {
                 break 'lab2;
             }
-env.next_char();            break 'lab5;
+            env.next_char();
+            break 'lab5;
         }
-        if (context.i_p1 - env.cursor) <= 1{
+        if (context.i_p1 - env.cursor) <= 1 {
             break 'lab2;
         }
         context.i_p1 = env.cursor;
@@ -2643,483 +2579,301 @@ fn r_Step_1(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.bra = env.cursor;
     match among_var {
         1 => {
-            if !env.slice_from("loga") {
-                return false;
-            }
+            env.slice_from("loga");
         }
         2 => {
-            if !env.slice_from("peh") {
-                return false;
-            }
+            env.slice_from("peh");
         }
         3 => {
-            if !env.slice_from("vojka") {
-                return false;
-            }
+            env.slice_from("vojka");
         }
         4 => {
-            if !env.slice_from("bojka") {
-                return false;
-            }
+            env.slice_from("bojka");
         }
         5 => {
-            if !env.slice_from("jak") {
-                return false;
-            }
+            env.slice_from("jak");
         }
         6 => {
-            if !env.slice_from("čajni") {
-                return false;
-            }
+            env.slice_from("čajni");
         }
         7 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("cajni") {
-                return false;
-            }
+            env.slice_from("cajni");
         }
         8 => {
-            if !env.slice_from("erni") {
-                return false;
-            }
+            env.slice_from("erni");
         }
         9 => {
-            if !env.slice_from("larni") {
-                return false;
-            }
+            env.slice_from("larni");
         }
         10 => {
-            if !env.slice_from("esni") {
-                return false;
-            }
+            env.slice_from("esni");
         }
         11 => {
-            if !env.slice_from("anjca") {
-                return false;
-            }
+            env.slice_from("anjca");
         }
         12 => {
-            if !env.slice_from("ajca") {
-                return false;
-            }
+            env.slice_from("ajca");
         }
         13 => {
-            if !env.slice_from("ljca") {
-                return false;
-            }
+            env.slice_from("ljca");
         }
         14 => {
-            if !env.slice_from("ejca") {
-                return false;
-            }
+            env.slice_from("ejca");
         }
         15 => {
-            if !env.slice_from("ojca") {
-                return false;
-            }
+            env.slice_from("ojca");
         }
         16 => {
-            if !env.slice_from("ajka") {
-                return false;
-            }
+            env.slice_from("ajka");
         }
         17 => {
-            if !env.slice_from("ojka") {
-                return false;
-            }
+            env.slice_from("ojka");
         }
         18 => {
-            if !env.slice_from("šca") {
-                return false;
-            }
+            env.slice_from("šca");
         }
         19 => {
-            if !env.slice_from("ing") {
-                return false;
-            }
+            env.slice_from("ing");
         }
         20 => {
-            if !env.slice_from("tvenik") {
-                return false;
-            }
+            env.slice_from("tvenik");
         }
         21 => {
-            if !env.slice_from("tetika") {
-                return false;
-            }
+            env.slice_from("tetika");
         }
         22 => {
-            if !env.slice_from("nstva") {
-                return false;
-            }
+            env.slice_from("nstva");
         }
         23 => {
-            if !env.slice_from("nik") {
-                return false;
-            }
+            env.slice_from("nik");
         }
         24 => {
-            if !env.slice_from("tik") {
-                return false;
-            }
+            env.slice_from("tik");
         }
         25 => {
-            if !env.slice_from("zik") {
-                return false;
-            }
+            env.slice_from("zik");
         }
         26 => {
-            if !env.slice_from("snik") {
-                return false;
-            }
+            env.slice_from("snik");
         }
         27 => {
-            if !env.slice_from("kusi") {
-                return false;
-            }
+            env.slice_from("kusi");
         }
         28 => {
-            if !env.slice_from("kusni") {
-                return false;
-            }
+            env.slice_from("kusni");
         }
         29 => {
-            if !env.slice_from("kustva") {
-                return false;
-            }
+            env.slice_from("kustva");
         }
         30 => {
-            if !env.slice_from("dušni") {
-                return false;
-            }
+            env.slice_from("dušni");
         }
         31 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("dusni") {
-                return false;
-            }
+            env.slice_from("dusni");
         }
         32 => {
-            if !env.slice_from("antni") {
-                return false;
-            }
+            env.slice_from("antni");
         }
         33 => {
-            if !env.slice_from("bilni") {
-                return false;
-            }
+            env.slice_from("bilni");
         }
         34 => {
-            if !env.slice_from("tilni") {
-                return false;
-            }
+            env.slice_from("tilni");
         }
         35 => {
-            if !env.slice_from("avilni") {
-                return false;
-            }
+            env.slice_from("avilni");
         }
         36 => {
-            if !env.slice_from("silni") {
-                return false;
-            }
+            env.slice_from("silni");
         }
         37 => {
-            if !env.slice_from("gilni") {
-                return false;
-            }
+            env.slice_from("gilni");
         }
         38 => {
-            if !env.slice_from("rilni") {
-                return false;
-            }
+            env.slice_from("rilni");
         }
         39 => {
-            if !env.slice_from("nilni") {
-                return false;
-            }
+            env.slice_from("nilni");
         }
         40 => {
-            if !env.slice_from("alni") {
-                return false;
-            }
+            env.slice_from("alni");
         }
         41 => {
-            if !env.slice_from("ozni") {
-                return false;
-            }
+            env.slice_from("ozni");
         }
         42 => {
-            if !env.slice_from("ravi") {
-                return false;
-            }
+            env.slice_from("ravi");
         }
         43 => {
-            if !env.slice_from("stavni") {
-                return false;
-            }
+            env.slice_from("stavni");
         }
         44 => {
-            if !env.slice_from("pravni") {
-                return false;
-            }
+            env.slice_from("pravni");
         }
         45 => {
-            if !env.slice_from("tivni") {
-                return false;
-            }
+            env.slice_from("tivni");
         }
         46 => {
-            if !env.slice_from("sivni") {
-                return false;
-            }
+            env.slice_from("sivni");
         }
         47 => {
-            if !env.slice_from("atni") {
-                return false;
-            }
+            env.slice_from("atni");
         }
         48 => {
-            if !env.slice_from("enta") {
-                return false;
-            }
+            env.slice_from("enta");
         }
         49 => {
-            if !env.slice_from("tetni") {
-                return false;
-            }
+            env.slice_from("tetni");
         }
         50 => {
-            if !env.slice_from("pletni") {
-                return false;
-            }
+            env.slice_from("pletni");
         }
         51 => {
-            if !env.slice_from("šavi") {
-                return false;
-            }
+            env.slice_from("šavi");
         }
         52 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("savi") {
-                return false;
-            }
+            env.slice_from("savi");
         }
         53 => {
-            if !env.slice_from("anta") {
-                return false;
-            }
+            env.slice_from("anta");
         }
         54 => {
-            if !env.slice_from("ačka") {
-                return false;
-            }
+            env.slice_from("ačka");
         }
         55 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("acka") {
-                return false;
-            }
+            env.slice_from("acka");
         }
         56 => {
-            if !env.slice_from("uška") {
-                return false;
-            }
+            env.slice_from("uška");
         }
         57 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("uska") {
-                return false;
-            }
+            env.slice_from("uska");
         }
         58 => {
-            if !env.slice_from("atka") {
-                return false;
-            }
+            env.slice_from("atka");
         }
         59 => {
-            if !env.slice_from("etka") {
-                return false;
-            }
+            env.slice_from("etka");
         }
         60 => {
-            if !env.slice_from("itka") {
-                return false;
-            }
+            env.slice_from("itka");
         }
         61 => {
-            if !env.slice_from("otka") {
-                return false;
-            }
+            env.slice_from("otka");
         }
         62 => {
-            if !env.slice_from("utka") {
-                return false;
-            }
+            env.slice_from("utka");
         }
         63 => {
-            if !env.slice_from("eskna") {
-                return false;
-            }
+            env.slice_from("eskna");
         }
         64 => {
-            if !env.slice_from("tični") {
-                return false;
-            }
+            env.slice_from("tični");
         }
         65 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("ticni") {
-                return false;
-            }
+            env.slice_from("ticni");
         }
         66 => {
-            if !env.slice_from("ojska") {
-                return false;
-            }
+            env.slice_from("ojska");
         }
         67 => {
-            if !env.slice_from("esma") {
-                return false;
-            }
+            env.slice_from("esma");
         }
         68 => {
-            if !env.slice_from("metra") {
-                return false;
-            }
+            env.slice_from("metra");
         }
         69 => {
-            if !env.slice_from("centra") {
-                return false;
-            }
+            env.slice_from("centra");
         }
         70 => {
-            if !env.slice_from("istra") {
-                return false;
-            }
+            env.slice_from("istra");
         }
         71 => {
-            if !env.slice_from("osti") {
-                return false;
-            }
+            env.slice_from("osti");
         }
         72 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("osti") {
-                return false;
-            }
+            env.slice_from("osti");
         }
         73 => {
-            if !env.slice_from("dba") {
-                return false;
-            }
+            env.slice_from("dba");
         }
         74 => {
-            if !env.slice_from("čka") {
-                return false;
-            }
+            env.slice_from("čka");
         }
         75 => {
-            if !env.slice_from("mca") {
-                return false;
-            }
+            env.slice_from("mca");
         }
         76 => {
-            if !env.slice_from("nca") {
-                return false;
-            }
+            env.slice_from("nca");
         }
         77 => {
-            if !env.slice_from("voljni") {
-                return false;
-            }
+            env.slice_from("voljni");
         }
         78 => {
-            if !env.slice_from("anki") {
-                return false;
-            }
+            env.slice_from("anki");
         }
         79 => {
-            if !env.slice_from("vca") {
-                return false;
-            }
+            env.slice_from("vca");
         }
         80 => {
-            if !env.slice_from("sca") {
-                return false;
-            }
+            env.slice_from("sca");
         }
         81 => {
-            if !env.slice_from("rca") {
-                return false;
-            }
+            env.slice_from("rca");
         }
         82 => {
-            if !env.slice_from("alca") {
-                return false;
-            }
+            env.slice_from("alca");
         }
         83 => {
-            if !env.slice_from("elca") {
-                return false;
-            }
+            env.slice_from("elca");
         }
         84 => {
-            if !env.slice_from("olca") {
-                return false;
-            }
+            env.slice_from("olca");
         }
         85 => {
-            if !env.slice_from("njca") {
-                return false;
-            }
+            env.slice_from("njca");
         }
         86 => {
-            if !env.slice_from("ekta") {
-                return false;
-            }
+            env.slice_from("ekta");
         }
         87 => {
-            if !env.slice_from("izma") {
-                return false;
-            }
+            env.slice_from("izma");
         }
         88 => {
-            if !env.slice_from("jebi") {
-                return false;
-            }
+            env.slice_from("jebi");
         }
         89 => {
-            if !env.slice_from("baci") {
-                return false;
-            }
+            env.slice_from("baci");
         }
         90 => {
-            if !env.slice_from("ašni") {
-                return false;
-            }
+            env.slice_from("ašni");
         }
         91 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("asni") {
-                return false;
-            }
+            env.slice_from("asni");
         }
         _ => ()
     }
@@ -3139,956 +2893,628 @@ fn r_Step_2(env: &mut SnowballEnv, context: &mut Context) -> bool {
     }
     match among_var {
         1 => {
-            if !env.slice_from("sk") {
-                return false;
-            }
+            env.slice_from("sk");
         }
         2 => {
-            if !env.slice_from("šk") {
-                return false;
-            }
+            env.slice_from("šk");
         }
         3 => {
-            if !env.slice_from("stv") {
-                return false;
-            }
+            env.slice_from("stv");
         }
         4 => {
-            if !env.slice_from("štv") {
-                return false;
-            }
+            env.slice_from("štv");
         }
         5 => {
-            if !env.slice_from("tanij") {
-                return false;
-            }
+            env.slice_from("tanij");
         }
         6 => {
-            if !env.slice_from("manij") {
-                return false;
-            }
+            env.slice_from("manij");
         }
         7 => {
-            if !env.slice_from("panij") {
-                return false;
-            }
+            env.slice_from("panij");
         }
         8 => {
-            if !env.slice_from("ranij") {
-                return false;
-            }
+            env.slice_from("ranij");
         }
         9 => {
-            if !env.slice_from("ganij") {
-                return false;
-            }
+            env.slice_from("ganij");
         }
         10 => {
-            if !env.slice_from("an") {
-                return false;
-            }
+            env.slice_from("an");
         }
         11 => {
-            if !env.slice_from("in") {
-                return false;
-            }
+            env.slice_from("in");
         }
         12 => {
-            if !env.slice_from("on") {
-                return false;
-            }
+            env.slice_from("on");
         }
         13 => {
-            if !env.slice_from("n") {
-                return false;
-            }
+            env.slice_from("n");
         }
         14 => {
-            if !env.slice_from("ać") {
-                return false;
-            }
+            env.slice_from("ać");
         }
         15 => {
-            if !env.slice_from("eć") {
-                return false;
-            }
+            env.slice_from("eć");
         }
         16 => {
-            if !env.slice_from("uć") {
-                return false;
-            }
+            env.slice_from("uć");
         }
         17 => {
-            if !env.slice_from("ugov") {
-                return false;
-            }
+            env.slice_from("ugov");
         }
         18 => {
-            if !env.slice_from("ug") {
-                return false;
-            }
+            env.slice_from("ug");
         }
         19 => {
-            if !env.slice_from("log") {
-                return false;
-            }
+            env.slice_from("log");
         }
         20 => {
-            if !env.slice_from("g") {
-                return false;
-            }
+            env.slice_from("g");
         }
         21 => {
-            if !env.slice_from("rari") {
-                return false;
-            }
+            env.slice_from("rari");
         }
         22 => {
-            if !env.slice_from("oti") {
-                return false;
-            }
+            env.slice_from("oti");
         }
         23 => {
-            if !env.slice_from("si") {
-                return false;
-            }
+            env.slice_from("si");
         }
         24 => {
-            if !env.slice_from("li") {
-                return false;
-            }
+            env.slice_from("li");
         }
         25 => {
-            if !env.slice_from("uj") {
-                return false;
-            }
+            env.slice_from("uj");
         }
         26 => {
-            if !env.slice_from("caj") {
-                return false;
-            }
+            env.slice_from("caj");
         }
         27 => {
-            if !env.slice_from("čaj") {
-                return false;
-            }
+            env.slice_from("čaj");
         }
         28 => {
-            if !env.slice_from("ćaj") {
-                return false;
-            }
+            env.slice_from("ćaj");
         }
         29 => {
-            if !env.slice_from("đaj") {
-                return false;
-            }
+            env.slice_from("đaj");
         }
         30 => {
-            if !env.slice_from("laj") {
-                return false;
-            }
+            env.slice_from("laj");
         }
         31 => {
-            if !env.slice_from("raj") {
-                return false;
-            }
+            env.slice_from("raj");
         }
         32 => {
-            if !env.slice_from("bij") {
-                return false;
-            }
+            env.slice_from("bij");
         }
         33 => {
-            if !env.slice_from("cij") {
-                return false;
-            }
+            env.slice_from("cij");
         }
         34 => {
-            if !env.slice_from("dij") {
-                return false;
-            }
+            env.slice_from("dij");
         }
         35 => {
-            if !env.slice_from("lij") {
-                return false;
-            }
+            env.slice_from("lij");
         }
         36 => {
-            if !env.slice_from("nij") {
-                return false;
-            }
+            env.slice_from("nij");
         }
         37 => {
-            if !env.slice_from("mij") {
-                return false;
-            }
+            env.slice_from("mij");
         }
         38 => {
-            if !env.slice_from("žij") {
-                return false;
-            }
+            env.slice_from("žij");
         }
         39 => {
-            if !env.slice_from("gij") {
-                return false;
-            }
+            env.slice_from("gij");
         }
         40 => {
-            if !env.slice_from("fij") {
-                return false;
-            }
+            env.slice_from("fij");
         }
         41 => {
-            if !env.slice_from("pij") {
-                return false;
-            }
+            env.slice_from("pij");
         }
         42 => {
-            if !env.slice_from("rij") {
-                return false;
-            }
+            env.slice_from("rij");
         }
         43 => {
-            if !env.slice_from("sij") {
-                return false;
-            }
+            env.slice_from("sij");
         }
         44 => {
-            if !env.slice_from("tij") {
-                return false;
-            }
+            env.slice_from("tij");
         }
         45 => {
-            if !env.slice_from("zij") {
-                return false;
-            }
+            env.slice_from("zij");
         }
         46 => {
-            if !env.slice_from("nal") {
-                return false;
-            }
+            env.slice_from("nal");
         }
         47 => {
-            if !env.slice_from("ijal") {
-                return false;
-            }
+            env.slice_from("ijal");
         }
         48 => {
-            if !env.slice_from("ozil") {
-                return false;
-            }
+            env.slice_from("ozil");
         }
         49 => {
-            if !env.slice_from("olov") {
-                return false;
-            }
+            env.slice_from("olov");
         }
         50 => {
-            if !env.slice_from("ol") {
-                return false;
-            }
+            env.slice_from("ol");
         }
         51 => {
-            if !env.slice_from("lem") {
-                return false;
-            }
+            env.slice_from("lem");
         }
         52 => {
-            if !env.slice_from("ram") {
-                return false;
-            }
+            env.slice_from("ram");
         }
         53 => {
-            if !env.slice_from("ar") {
-                return false;
-            }
+            env.slice_from("ar");
         }
         54 => {
-            if !env.slice_from("dr") {
-                return false;
-            }
+            env.slice_from("dr");
         }
         55 => {
-            if !env.slice_from("er") {
-                return false;
-            }
+            env.slice_from("er");
         }
         56 => {
-            if !env.slice_from("or") {
-                return false;
-            }
+            env.slice_from("or");
         }
         57 => {
-            if !env.slice_from("es") {
-                return false;
-            }
+            env.slice_from("es");
         }
         58 => {
-            if !env.slice_from("is") {
-                return false;
-            }
+            env.slice_from("is");
         }
         59 => {
-            if !env.slice_from("taš") {
-                return false;
-            }
+            env.slice_from("taš");
         }
         60 => {
-            if !env.slice_from("naš") {
-                return false;
-            }
+            env.slice_from("naš");
         }
         61 => {
-            if !env.slice_from("jaš") {
-                return false;
-            }
+            env.slice_from("jaš");
         }
         62 => {
-            if !env.slice_from("kaš") {
-                return false;
-            }
+            env.slice_from("kaš");
         }
         63 => {
-            if !env.slice_from("baš") {
-                return false;
-            }
+            env.slice_from("baš");
         }
         64 => {
-            if !env.slice_from("gaš") {
-                return false;
-            }
+            env.slice_from("gaš");
         }
         65 => {
-            if !env.slice_from("vaš") {
-                return false;
-            }
+            env.slice_from("vaš");
         }
         66 => {
-            if !env.slice_from("eš") {
-                return false;
-            }
+            env.slice_from("eš");
         }
         67 => {
-            if !env.slice_from("iš") {
-                return false;
-            }
+            env.slice_from("iš");
         }
         68 => {
-            if !env.slice_from("ikat") {
-                return false;
-            }
+            env.slice_from("ikat");
         }
         69 => {
-            if !env.slice_from("lat") {
-                return false;
-            }
+            env.slice_from("lat");
         }
         70 => {
-            if !env.slice_from("et") {
-                return false;
-            }
+            env.slice_from("et");
         }
         71 => {
-            if !env.slice_from("est") {
-                return false;
-            }
+            env.slice_from("est");
         }
         72 => {
-            if !env.slice_from("ist") {
-                return false;
-            }
+            env.slice_from("ist");
         }
         73 => {
-            if !env.slice_from("kst") {
-                return false;
-            }
+            env.slice_from("kst");
         }
         74 => {
-            if !env.slice_from("ost") {
-                return false;
-            }
+            env.slice_from("ost");
         }
         75 => {
-            if !env.slice_from("išt") {
-                return false;
-            }
+            env.slice_from("išt");
         }
         76 => {
-            if !env.slice_from("ova") {
-                return false;
-            }
+            env.slice_from("ova");
         }
         77 => {
-            if !env.slice_from("av") {
-                return false;
-            }
+            env.slice_from("av");
         }
         78 => {
-            if !env.slice_from("ev") {
-                return false;
-            }
+            env.slice_from("ev");
         }
         79 => {
-            if !env.slice_from("iv") {
-                return false;
-            }
+            env.slice_from("iv");
         }
         80 => {
-            if !env.slice_from("ov") {
-                return false;
-            }
+            env.slice_from("ov");
         }
         81 => {
-            if !env.slice_from("mov") {
-                return false;
-            }
+            env.slice_from("mov");
         }
         82 => {
-            if !env.slice_from("lov") {
-                return false;
-            }
+            env.slice_from("lov");
         }
         83 => {
-            if !env.slice_from("el") {
-                return false;
-            }
+            env.slice_from("el");
         }
         84 => {
-            if !env.slice_from("anj") {
-                return false;
-            }
+            env.slice_from("anj");
         }
         85 => {
-            if !env.slice_from("enj") {
-                return false;
-            }
+            env.slice_from("enj");
         }
         86 => {
-            if !env.slice_from("šnj") {
-                return false;
-            }
+            env.slice_from("šnj");
         }
         87 => {
-            if !env.slice_from("en") {
-                return false;
-            }
+            env.slice_from("en");
         }
         88 => {
-            if !env.slice_from("šn") {
-                return false;
-            }
+            env.slice_from("šn");
         }
         89 => {
-            if !env.slice_from("čin") {
-                return false;
-            }
+            env.slice_from("čin");
         }
         90 => {
-            if !env.slice_from("roši") {
-                return false;
-            }
+            env.slice_from("roši");
         }
         91 => {
-            if !env.slice_from("oš") {
-                return false;
-            }
+            env.slice_from("oš");
         }
         92 => {
-            if !env.slice_from("evit") {
-                return false;
-            }
+            env.slice_from("evit");
         }
         93 => {
-            if !env.slice_from("ovit") {
-                return false;
-            }
+            env.slice_from("ovit");
         }
         94 => {
-            if !env.slice_from("ast") {
-                return false;
-            }
+            env.slice_from("ast");
         }
         95 => {
-            if !env.slice_from("k") {
-                return false;
-            }
+            env.slice_from("k");
         }
         96 => {
-            if !env.slice_from("eva") {
-                return false;
-            }
+            env.slice_from("eva");
         }
         97 => {
-            if !env.slice_from("ava") {
-                return false;
-            }
+            env.slice_from("ava");
         }
         98 => {
-            if !env.slice_from("iva") {
-                return false;
-            }
+            env.slice_from("iva");
         }
         99 => {
-            if !env.slice_from("uva") {
-                return false;
-            }
+            env.slice_from("uva");
         }
         100 => {
-            if !env.slice_from("ir") {
-                return false;
-            }
+            env.slice_from("ir");
         }
         101 => {
-            if !env.slice_from("ač") {
-                return false;
-            }
+            env.slice_from("ač");
         }
         102 => {
-            if !env.slice_from("ača") {
-                return false;
-            }
+            env.slice_from("ača");
         }
         103 => {
-            if !env.slice_from("ni") {
-                return false;
-            }
+            env.slice_from("ni");
         }
         104 => {
-            if !env.slice_from("a") {
-                return false;
-            }
+            env.slice_from("a");
         }
         105 => {
-            if !env.slice_from("ur") {
-                return false;
-            }
+            env.slice_from("ur");
         }
         106 => {
-            if !env.slice_from("astaj") {
-                return false;
-            }
+            env.slice_from("astaj");
         }
         107 => {
-            if !env.slice_from("istaj") {
-                return false;
-            }
+            env.slice_from("istaj");
         }
         108 => {
-            if !env.slice_from("ostaj") {
-                return false;
-            }
+            env.slice_from("ostaj");
         }
         109 => {
-            if !env.slice_from("aj") {
-                return false;
-            }
+            env.slice_from("aj");
         }
         110 => {
-            if !env.slice_from("asta") {
-                return false;
-            }
+            env.slice_from("asta");
         }
         111 => {
-            if !env.slice_from("ista") {
-                return false;
-            }
+            env.slice_from("ista");
         }
         112 => {
-            if !env.slice_from("osta") {
-                return false;
-            }
+            env.slice_from("osta");
         }
         113 => {
-            if !env.slice_from("ta") {
-                return false;
-            }
+            env.slice_from("ta");
         }
         114 => {
-            if !env.slice_from("inj") {
-                return false;
-            }
+            env.slice_from("inj");
         }
         115 => {
-            if !env.slice_from("as") {
-                return false;
-            }
+            env.slice_from("as");
         }
         116 => {
-            if !env.slice_from("i") {
-                return false;
-            }
+            env.slice_from("i");
         }
         117 => {
-            if !env.slice_from("luč") {
-                return false;
-            }
+            env.slice_from("luč");
         }
         118 => {
-            if !env.slice_from("jeti") {
-                return false;
-            }
+            env.slice_from("jeti");
         }
         119 => {
-            if !env.slice_from("e") {
-                return false;
-            }
+            env.slice_from("e");
         }
         120 => {
-            if !env.slice_from("at") {
-                return false;
-            }
+            env.slice_from("at");
         }
         121 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("luc") {
-                return false;
-            }
+            env.slice_from("luc");
         }
         122 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("snj") {
-                return false;
-            }
+            env.slice_from("snj");
         }
         123 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("os") {
-                return false;
-            }
+            env.slice_from("os");
         }
         124 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("ac") {
-                return false;
-            }
+            env.slice_from("ac");
         }
         125 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("ec") {
-                return false;
-            }
+            env.slice_from("ec");
         }
         126 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("uc") {
-                return false;
-            }
+            env.slice_from("uc");
         }
         127 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("rosi") {
-                return false;
-            }
+            env.slice_from("rosi");
         }
         128 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("aca") {
-                return false;
-            }
+            env.slice_from("aca");
         }
         129 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("jas") {
-                return false;
-            }
+            env.slice_from("jas");
         }
         130 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("tas") {
-                return false;
-            }
+            env.slice_from("tas");
         }
         131 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("gas") {
-                return false;
-            }
+            env.slice_from("gas");
         }
         132 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("nas") {
-                return false;
-            }
+            env.slice_from("nas");
         }
         133 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("kas") {
-                return false;
-            }
+            env.slice_from("kas");
         }
         134 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("vas") {
-                return false;
-            }
+            env.slice_from("vas");
         }
         135 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("bas") {
-                return false;
-            }
+            env.slice_from("bas");
         }
         136 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("as") {
-                return false;
-            }
+            env.slice_from("as");
         }
         137 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("cin") {
-                return false;
-            }
+            env.slice_from("cin");
         }
         138 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("astaj") {
-                return false;
-            }
+            env.slice_from("astaj");
         }
         139 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("istaj") {
-                return false;
-            }
+            env.slice_from("istaj");
         }
         140 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("ostaj") {
-                return false;
-            }
+            env.slice_from("ostaj");
         }
         141 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("asta") {
-                return false;
-            }
+            env.slice_from("asta");
         }
         142 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("ista") {
-                return false;
-            }
+            env.slice_from("ista");
         }
         143 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("osta") {
-                return false;
-            }
+            env.slice_from("osta");
         }
         144 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("ava") {
-                return false;
-            }
+            env.slice_from("ava");
         }
         145 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("eva") {
-                return false;
-            }
+            env.slice_from("eva");
         }
         146 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("iva") {
-                return false;
-            }
+            env.slice_from("iva");
         }
         147 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("uva") {
-                return false;
-            }
+            env.slice_from("uva");
         }
         148 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("ova") {
-                return false;
-            }
+            env.slice_from("ova");
         }
         149 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("jeti") {
-                return false;
-            }
+            env.slice_from("jeti");
         }
         150 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("inj") {
-                return false;
-            }
+            env.slice_from("inj");
         }
         151 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("ist") {
-                return false;
-            }
+            env.slice_from("ist");
         }
         152 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("es") {
-                return false;
-            }
+            env.slice_from("es");
         }
         153 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("et") {
-                return false;
-            }
+            env.slice_from("et");
         }
         154 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("is") {
-                return false;
-            }
+            env.slice_from("is");
         }
         155 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("ir") {
-                return false;
-            }
+            env.slice_from("ir");
         }
         156 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("ur") {
-                return false;
-            }
+            env.slice_from("ur");
         }
         157 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("uj") {
-                return false;
-            }
+            env.slice_from("uj");
         }
         158 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("ni") {
-                return false;
-            }
+            env.slice_from("ni");
         }
         159 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("sn") {
-                return false;
-            }
+            env.slice_from("sn");
         }
         160 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("ta") {
-                return false;
-            }
+            env.slice_from("ta");
         }
         161 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("a") {
-                return false;
-            }
+            env.slice_from("a");
         }
         162 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("i") {
-                return false;
-            }
+            env.slice_from("i");
         }
         163 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("e") {
-                return false;
-            }
+            env.slice_from("e");
         }
         164 => {
             if !context.b_no_diacritics {
                 return false;
             }
-            if !env.slice_from("n") {
-                return false;
-            }
+            env.slice_from("n");
         }
         _ => ()
     }
@@ -4108,9 +3534,7 @@ fn r_Step_3(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !r_R1(env, context) {
         return false;
     }
-    if !env.slice_from("") {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 

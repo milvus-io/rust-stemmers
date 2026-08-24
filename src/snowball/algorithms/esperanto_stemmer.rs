@@ -1,4 +1,4 @@
-//! Generated from esperanto.sbl by Snowball 3.0.0 - https://snowballstem.org/
+//! Generated from esperanto.sbl by Snowball 3.1.1 - https://snowballstem.org/
 
 #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
@@ -7,6 +7,10 @@
 #![allow(unused_variables)]
 use snowball::SnowballEnv;
 use snowball::Among;
+
+#[derive(Clone)]
+struct Context {
+}
 
 static A_0: &'static [Among<Context>; 17] = &[
     Among("", -1, 14, None),
@@ -137,13 +141,13 @@ static A_9: &'static [Among<Context>; 19] = &[
     Among("a", -1, -1, None),
     Among("e", -1, -1, None),
     Among("i", -1, -1, None),
-    Among("j", -1, -1, Some(&r_not_after_letter)),
+    Among("j", -1, 1, None),
     Among("aj", 3, -1, None),
     Among("oj", 3, -1, None),
-    Among("n", -1, -1, Some(&r_not_after_letter)),
+    Among("n", -1, 1, None),
     Among("an", 6, -1, None),
     Among("en", 6, -1, None),
-    Among("jn", 6, -1, Some(&r_not_after_letter)),
+    Among("jn", 6, 1, None),
     Among("ajn", 9, -1, None),
     Among("ojn", 9, -1, None),
     Among("on", 6, -1, None),
@@ -161,14 +165,10 @@ static G_aou: &'static [u8; 3] = &[1, 64, 16];
 
 static G_digit: &'static [u8; 2] = &[255, 3];
 
-#[derive(Clone)]
-struct Context {
-    b_foreign: bool,
-}
-
 fn r_canonical_form(env: &mut SnowballEnv, context: &mut Context) -> bool {
     let mut among_var;
-    context.b_foreign = false;
+    let mut b_foreign : bool;
+    b_foreign = false;
     'replab0: loop{
         let v_1 = env.cursor;
         'lab1: for _ in 0..1 {
@@ -177,70 +177,48 @@ fn r_canonical_form(env: &mut SnowballEnv, context: &mut Context) -> bool {
             env.ket = env.cursor;
             match among_var {
                 1 => {
-                    if !env.slice_from("ĉ") {
-                        return false;
-                    }
+                    env.slice_from("ĉ");
                 }
                 2 => {
-                    if !env.slice_from("ĝ") {
-                        return false;
-                    }
+                    env.slice_from("ĝ");
                 }
                 3 => {
-                    if !env.slice_from("ĥ") {
-                        return false;
-                    }
+                    env.slice_from("ĥ");
                 }
                 4 => {
-                    if !env.slice_from("ĵ") {
-                        return false;
-                    }
+                    env.slice_from("ĵ");
                 }
                 5 => {
-                    if !env.slice_from("ŝ") {
-                        return false;
-                    }
+                    env.slice_from("ŝ");
                 }
                 6 => {
-                    if !env.slice_from("ŭ") {
-                        return false;
-                    }
+                    env.slice_from("ŭ");
                 }
                 7 => {
-                    if !env.slice_from("a") {
-                        return false;
-                    }
-                    context.b_foreign = true;
+                    env.slice_from("a");
+                    b_foreign = true;
                 }
                 8 => {
-                    if !env.slice_from("e") {
-                        return false;
-                    }
-                    context.b_foreign = true;
+                    env.slice_from("e");
+                    b_foreign = true;
                 }
                 9 => {
-                    if !env.slice_from("i") {
-                        return false;
-                    }
-                    context.b_foreign = true;
+                    env.slice_from("i");
+                    b_foreign = true;
                 }
                 10 => {
-                    if !env.slice_from("o") {
-                        return false;
-                    }
-                    context.b_foreign = true;
+                    env.slice_from("o");
+                    b_foreign = true;
                 }
                 11 => {
-                    if !env.slice_from("u") {
-                        return false;
-                    }
-                    context.b_foreign = true;
+                    env.slice_from("u");
+                    b_foreign = true;
                 }
                 12 => {
-                    context.b_foreign = true;
+                    b_foreign = true;
                 }
                 13 => {
-                    context.b_foreign = false;
+                    b_foreign = false;
                 }
                 14 => {
                     if env.cursor >= env.limit {
@@ -255,7 +233,7 @@ fn r_canonical_form(env: &mut SnowballEnv, context: &mut Context) -> bool {
         env.cursor = v_1;
         break 'replab0;
     }
-    return !context.b_foreign;
+    return !b_foreign;
 }
 
 fn r_initial_apostrophe(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -277,9 +255,7 @@ fn r_initial_apostrophe(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if env.cursor < env.limit {
         return false;
     }
-    if !env.slice_from("e") {
-        return false;
-    }
+    env.slice_from("e");
     return true
 }
 
@@ -302,22 +278,18 @@ fn r_pronoun(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     'lab1: loop {
-        let v_2 = env.limit - env.cursor;
         'lab2: loop {
             if env.cursor > env.limit_backward {
                 break 'lab2;
             }
             break 'lab1;
         }
-        env.cursor = env.limit - v_2;
         if !env.eq_s_b(&"-") {
             return false;
         }
         break 'lab1;
     }
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
@@ -336,9 +308,7 @@ fn r_final_apostrophe(env: &mut SnowballEnv, context: &mut Context) -> bool {
             if env.cursor > env.limit_backward {
                 break 'lab1;
             }
-            if !env.slice_from("a") {
-                return false;
-            }
+            env.slice_from("a");
             break 'lab0;
         }
         env.cursor = env.limit - v_1;
@@ -349,9 +319,7 @@ fn r_final_apostrophe(env: &mut SnowballEnv, context: &mut Context) -> bool {
             if env.cursor > env.limit_backward {
                 break 'lab2;
             }
-            if !env.slice_from("u") {
-                return false;
-            }
+            env.slice_from("u");
             break 'lab0;
         }
         env.cursor = env.limit - v_1;
@@ -364,28 +332,22 @@ fn r_final_apostrophe(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 break 'lab3;
             }
             'lab4: loop {
-                let v_2 = env.limit - env.cursor;
                 'lab5: loop {
                     if env.cursor > env.limit_backward {
                         break 'lab5;
                     }
                     break 'lab4;
                 }
-                env.cursor = env.limit - v_2;
                 if !env.eq_s_b(&"-") {
                     break 'lab3;
                 }
                 break 'lab4;
             }
-            if !env.slice_from("aŭ") {
-                return false;
-            }
+            env.slice_from("aŭ");
             break 'lab0;
         }
         env.cursor = env.limit - v_1;
-        if !env.slice_from("o") {
-            return false;
-        }
+        env.slice_from("o");
         break 'lab0;
     }
     return true
@@ -418,22 +380,18 @@ fn r_ujn_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     'lab2: loop {
-        let v_3 = env.limit - env.cursor;
         'lab3: loop {
             if env.cursor > env.limit_backward {
                 break 'lab3;
             }
             break 'lab2;
         }
-        env.cursor = env.limit - v_3;
         if !env.eq_s_b(&"-") {
             return false;
         }
         break 'lab2;
     }
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
@@ -446,14 +404,12 @@ fn r_uninflected(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     'lab0: loop {
-        let v_1 = env.limit - env.cursor;
         'lab1: loop {
             if env.cursor > env.limit_backward {
                 break 'lab1;
             }
             break 'lab0;
         }
-        env.cursor = env.limit - v_1;
         if !env.eq_s_b(&"-") {
             return false;
         }
@@ -533,23 +489,19 @@ fn r_correlative(env: &mut SnowballEnv, context: &mut Context) -> bool {
         break 'lab5;
     }
     'lab6: loop {
-        let v_7 = env.limit - env.cursor;
         'lab7: loop {
             if env.cursor > env.limit_backward {
                 break 'lab7;
             }
             break 'lab6;
         }
-        env.cursor = env.limit - v_7;
         if !env.eq_s_b(&"-") {
             return false;
         }
         break 'lab6;
     }
     env.cursor = env.limit - v_1;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
@@ -561,7 +513,8 @@ fn r_long_word(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 if !env.go_out_grouping_b(G_vowel, 97, 117) {
                     break 'lab1;
                 }
-env.previous_char();            }
+                env.previous_char();
+            }
             break 'lab0;
         }
         env.cursor = env.limit - v_1;
@@ -588,56 +541,57 @@ env.previous_char();            }
         if !env.go_out_grouping_b(G_digit, 48, 57) {
             return false;
         }
-env.previous_char();        break 'lab0;
-    }
-    return true
-}
-
-fn r_not_after_letter(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    'lab0: loop {
-        let v_1 = env.limit - env.cursor;
-        'lab1: loop {
-            if !env.eq_s_b(&"-") {
-                break 'lab1;
-            }
-            break 'lab0;
-        }
-        env.cursor = env.limit - v_1;
-        if !env.in_grouping_b(G_digit, 48, 57) {
-            return false;
-        }
+        env.previous_char();
         break 'lab0;
     }
     return true
 }
 
 fn r_standard_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
+    let mut among_var;
     env.ket = env.cursor;
     if (env.cursor <= env.limit_backward || env.current.as_bytes()[(env.cursor - 1) as usize] as u8 >> 5 != 3 as u8 || ((2672162 as i32 >> (env.current.as_bytes()[(env.cursor - 1) as usize] as u8 & 0x1f)) & 1) == 0) {
         return false;
     }
 
-    if env.find_among_b(A_9, context) == 0 {
+    among_var = env.find_among_b(A_9, context);
+    if among_var == 0 {
         return false;
     }
-    let v_1 = env.limit - env.cursor;
-    'lab0: loop {
-        if !env.eq_s_b(&"-") {
+    match among_var {
+        1 => {
+            let v_1 = env.limit - env.cursor;
+            'lab0: loop {
+                'lab1: loop {
+                    if !env.eq_s_b(&"-") {
+                        break 'lab1;
+                    }
+                    break 'lab0;
+                }
+                if !env.in_grouping_b(G_digit, 48, 57) {
+                    return false;
+                }
+                break 'lab0;
+            }
             env.cursor = env.limit - v_1;
-            break 'lab0;
         }
-        break 'lab0;
+        _ => ()
+    }
+    let v_2 = env.limit - env.cursor;
+    'lab2: loop {
+        if !env.eq_s_b(&"-") {
+            env.cursor = env.limit - v_2;
+            break 'lab2;
+        }
+        break 'lab2;
     }
     env.bra = env.cursor;
-    if !env.slice_del() {
-        return false;
-    }
+    env.slice_del();
     return true
 }
 
 pub fn stem(env: &mut SnowballEnv) -> bool {
     let mut context = &mut Context {
-        b_foreign: false,
     };
     let v_1 = env.cursor;
     if !r_canonical_form(env, context) {
